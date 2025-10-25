@@ -1,0 +1,141 @@
+@font-face{
+  font-family: 'MN_Lon2';
+  src: url(/font/MN_Lon2.ttf);
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face{
+  font-family: 'Creepster';
+  src: url(/font/Creepster-Regular.ttf);
+  font-weight: 400;
+  font-style: normal;
+}
+
+body{
+  line-height: 1.6;            
+  background-color: #f0e1c9 !important;
+}
+
+#navbrand{
+  font-family: 'Creepster';
+  color:#CE642A;
+  font-size: 2em;
+}
+
+#navMenu{
+  font-family: 'Creepster';
+  font-size: 1.5em;
+}
+
+#dropdown-item{
+  font-size: 0.9em;
+}
+
+#thai-brand{
+  font-family: 'MN_Lon2';
+  font-size: 1.5em;
+}
+
+header{
+  background-color: #211C20;
+}
+
+header h1 {
+  font-family: 'Creepster';
+  color: #CE642A;
+  font-size: 5rem;
+  text-align: center;
+}
+
+#thai{
+  font-family: 'MN_Lon2';
+  font-size: 7rem;
+}
+
+#stline, #ndline{
+  position: relative;
+}
+
+#stline{
+  transform: rotate(-5deg);
+  left: -15%;
+  bottom: -20px;
+}
+
+#ndline{
+  transform: rotate(5deg);
+  left: 15%;
+  top: -30px;
+}
+
+#register{
+  font-family: 'Creepster';
+  font-size: 3rem;
+  color: #46394A;
+}
+
+#registerbtn {
+  background-color: #CE642A;
+  color: #211C20;
+  font-family: sans-serif;
+  font-weight: bold;
+  font-size: 1.25rem;
+  padding: 0.5rem 0.5rem;
+  border-radius: 10px;
+  transition: transform 0.2s ease;
+}
+
+#registerbtn:hover {
+  transform: scale(1.15) rotate(-2deg); 
+}
+
+#about h2{
+  font-family: 'Creepster';
+  font-size: 3rem;
+}
+
+#booth h2{
+  font-family: 'MN_Lon2';
+  font-size: 3.5em;
+  color: #CE642A;
+}
+
+#booth h5{
+  font-family: 'MN_Lon2';
+  font-size: 2.5em;
+}
+
+#dev-team{
+  font-size: 2em;
+}
+
+.team{
+  font-family: 'MN_Lon2';
+  font-size: 2em;
+}
+
+.team-list{
+  padding-top: 1.5em;
+}
+
+.footer-custom {
+  background-color: #CE642A;
+  padding: 1.5rem 0;
+}
+
+.social-icons a {
+  color: #211C20;
+  text-decoration: none;
+  font-size: 1.3em;
+  margin: 0 1rem;
+  transition: color 0.2s;
+}
+
+.social-icons a:hover {
+  color: #fff;
+}
+
+html {
+  scroll-behavior: smooth;
+}
