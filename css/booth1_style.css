@@ -1,0 +1,111 @@
+@font-face {
+  font-family: 'Creepster';
+  src: url(/font/Creepster-Regular.ttf);
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'MN_Lon2';
+  src: url(/font/MN_Lon2.ttf);
+  font-weight: 400;
+  font-style: normal;
+}
+
+body {
+  line-height: 1.6;
+  background-color: #f0e1c9 !important;
+}
+
+#navbrand {
+  font-family: 'Creepster';
+  color: #CE642A;
+  font-size: 2em;
+}
+
+#navMenu {
+  font-family: 'Creepster';
+  font-size: 1.5em;
+}
+
+#dropdown-item {
+  font-size: 0.9em;
+}
+
+.foodZone {
+  font-family: 'Creepster';
+  font-size: 80px;
+  text-align: left;
+  background-image: url('https://upload.wikimedia.org/wikipedia/commons/9/91/Pizza-3007395.jpg'); /* เปลี่ยนรูปตรงนี้ได้เลย */
+  color: white;
+}
+
+.Caption {
+  display: flex;
+}
+
+.Caption .left {
+  background-color: #5e4457;
+  color: white;
+  font-family: 'MN_Lon2';
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 35px;
+  font-size: 20px;
+}
+
+.Caption .right {
+  width: 100%;
+  background-image: url('https://upload.wikimedia.org/wikipedia/commons/9/91/Pizza-3007395.jpg');/* เปลี่ยนรูปตรงนี้ได้เลย */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+h1 {
+  font-family: 'Creepster';
+}
+.menu {
+  font-family: 'Creepster';
+  font-family: 'MN_Lon2';
+  text-align: center;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  justify-items: center;
+}
+.menu1{
+    display: flex;
+    width: 220px;
+    padding: 15px;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 4px 10px;
+    text-align: center;
+    flex-direction: column;
+    justify-content: space-between;
+    font-size: 40px;
+}
+.menu1 img{
+    width: 100%;
+    height: 150px;
+    border-radius: 8px;
+    margin-bottom: 10px; 
+    object-fit: cover; 
+}
+.footer-custom {
+  background-color: #CE642A;
+  padding: 1.5rem 0;
+}
+
+.social-icons a {
+  color: #211C20;
+  text-decoration: none;
+  font-size: 1.3em;
+  margin: 0 1rem;
+  transition: color 0.2s;
+}
+
+.social-icons a:hover {
+  color: #fff;
+}
