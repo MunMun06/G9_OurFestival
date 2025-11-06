@@ -14,7 +14,7 @@
 
 body {
   line-height: 1.6;
-  background-color: #f0e1c9 !important;
+  background-image: url('/resources/Background.jpg');
 }
 
 #navbrand {
@@ -36,7 +36,8 @@ body {
   font-family: 'Creepster';
   font-size: 80px;
   text-align: left;
-  background-image: url('https://upload.wikimedia.org/wikipedia/commons/9/91/Pizza-3007395.jpg'); /* เปลี่ยนรูปตรงนี้ได้เลย */
+  background-image: url('https://upload.wikimedia.org/wikipedia/commons/9/91/Pizza-3007395.jpg');
+  /* เปลี่ยนรูปตรงนี้ได้เลย */
   color: white;
 }
 
@@ -58,14 +59,17 @@ body {
 
 .Caption .right {
   width: 100%;
-  background-image: url('https://upload.wikimedia.org/wikipedia/commons/9/91/Pizza-3007395.jpg');/* เปลี่ยนรูปตรงนี้ได้เลย */
+  background-image: url('https://upload.wikimedia.org/wikipedia/commons/9/91/Pizza-3007395.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+
 }
+
 h1 {
   font-family: 'Creepster';
 }
+
 .menu {
   font-family: 'Creepster';
   font-family: 'MN_Lon2';
@@ -75,59 +79,68 @@ h1 {
   gap: 30px;
   justify-items: center;
 }
-.menu1{
-    display: flex;
-    width: 220px;
-    padding: 15px;
-    background-color: rgb(255, 255, 255);
-    box-shadow: 0 4px 10px;
-    text-align: center;
-    flex-direction: column;
-    justify-content: space-between;
-    font-size: 40px;
+
+.menu1 {
+  display: flex;
+  width: 220px;
+  padding: 15px;
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0 4px 10px;
+  text-align: center;
+  flex-direction: column;
+  justify-content: space-between;
+  font-size: 30px;
 }
-.menu1 img{
-    width: 100%;
-    height: 150px;
-    border-radius: 8px;
-    margin-bottom: 10px; 
-    object-fit: cover; 
+
+.menu1 img {
+  width: 100%;
+  height: 150px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  object-fit: cover;
 }
-footer{
+
+footer {
   background-color: #201D20;
   height: 30%;
   padding: 30%;
   border: 1px solid red;
 }
-.social-icons{
+
+.social-icons {
   display: flex;
   justify-content: center;
   gap: 40px;
 }
-.social-icons a{
+
+.social-icons a {
   text-decoration: none;
   color: #fff;
   font-size: 2em;
   transition: all 0.3s ease;
 }
-.social-icons i:hover{
+
+.social-icons i:hover {
   color: #ffffff;
   text-shadow: 0 0 15px #ff7b00;
   transform: scale(1.2);
 }
-.footbar{
+
+.footbar {
   margin-top: 50px;
   display: flex;
   justify-content: center;
   gap: 25px;
   font-family: Athiti;
 }
-.footbar a{
+
+.footbar a {
   text-decoration: none;
   color: #ffffff;
   transition: all 0.2s ease;
 }
-.footbar a:hover{
+
+.footbar a:hover {
   color: #ffffff;
   text-shadow: 0 0 15px #ff7b00;
   transform: scale(1.2);
