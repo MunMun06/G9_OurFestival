@@ -75,7 +75,7 @@ h1 {font-family: 'Creepster';}
   font-family: 'Creepster';
   font-size: 80px;
   text-align: left;
-  background-image: url('https://upload.wikimedia.org/wikipedia/commons/9/91/Pizza-3007395.jpg');
+  background-image: url('/resources/festival-ambiance-4.jpg');
   color: white;}
 
 .Caption {display: flex;}
@@ -92,9 +92,44 @@ h1 {font-family: 'Creepster';}
 
 .Caption .right {
   width: 100%;
-  background-image: url('https://upload.wikimedia.org/wikipedia/commons/9/91/Pizza-3007395.jpg');
+  background-image: url('/resources/festival-ambiance-8.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;}
 
-  
+.Caption .right1 {
+  width: 100%;
+  background-image: url('/resources/festival-ambiance-10.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;}  
+
+.list {
+  font-family: 'Creepster';
+  font-family: 'MN_Lon2';
+  text-align: center;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  justify-items: center;
+}
+
+.list1 {
+  display: flex;
+  width: 220px;
+  padding: 15px;
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0 4px 10px;
+  text-align: center;
+  flex-direction: column;
+  justify-content: space-between;
+  font-size: 30px;
+}
+
+.list1 img {
+  width: 100%;
+  height: 150px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  object-fit: cover;
+}  
