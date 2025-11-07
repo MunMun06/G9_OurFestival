@@ -1,0 +1,100 @@
+@font-face {
+  font-family: 'Creepster';
+  src: url(/font/Creepster-Regular.ttf);
+  font-weight: 400;
+  font-style: normal;}
+
+@font-face {
+  font-family: 'MN_Lon2';
+  src: url(/font/MN_Lon2.ttf);
+  font-weight: 400;
+  font-style: normal;}
+
+body{
+  line-height: 1.6;
+  background-image: url('/resources/Background.jpg')!important;
+ background-size: cover;
+  background-position: center;}
+#navbrand {
+  font-family: 'Creepster';
+  color: #CE642A;
+  font-size: 2em;}
+
+#navMenu {
+  font-family: 'Creepster';
+  font-size: 1.5em;}
+
+#dropdown-item {
+  font-size: 0.9em;}
+
+
+
+footer{
+  background-color: #201D20;
+  height: 30%;
+  padding: 30%;
+  border: 1px solid red;}
+
+.social-icons{
+  display: flex;
+  justify-content: center;
+  gap: 40px;}
+
+.social-icons a{
+  text-decoration: none;
+  color: #fff;
+  font-size: 2em;
+  transition: all 0.3s ease;}
+
+.social-icons i:hover{
+  color: #ffffff;
+  text-shadow: 0 0 15px #ff7b00;
+  transform: scale(1.2);}
+
+.footbar{
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  font-family: Athiti;}
+
+.footbar a{
+  text-decoration: none;
+  color: #ffffff;
+  transition: all 0.2s ease;}
+
+.footbar a:hover{
+  color: #ffffff;
+  text-shadow: 0 0 15px #ff7b00;
+  transform: scale(1.2);}
+
+  
+
+h1 {font-family: 'Creepster';}
+.Area{
+  font-family: 'Creepster';
+  font-size: 80px;
+  text-align: left;
+  background-image: url('https://upload.wikimedia.org/wikipedia/commons/9/91/Pizza-3007395.jpg');
+  color: white;}
+
+.Caption {display: flex;}
+.Caption .left {
+  background-color: #5e4457;
+  color: white;
+  font-family: 'MN_Lon2';
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 35px;
+  font-size: 20px;}
+
+.Caption .right {
+  width: 100%;
+  background-image: url('https://upload.wikimedia.org/wikipedia/commons/9/91/Pizza-3007395.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;}
+
+  
