@@ -104,6 +104,13 @@ h1 {font-family: 'Creepster';}
   background-position: center;
   background-repeat: no-repeat;}  
 
+  .Caption .right2 {
+    width: 100%;
+    background-image: url('/resources/booth-2-ambiance-1.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;}
+
 .list {
   font-family: 'Creepster';
   font-family: 'MN_Lon2';
