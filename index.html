@@ -1,90 +1,186 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>HALLOWวัด งานWEEN</title>
-  <link rel="stylesheet" href="/css/homePage_style.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-</head>
-<body>
-
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container">
-      <a class="navbar-brand" href="homePage.html" id="navbrand" >HALLOW<span id="thai-brand" >วัด งาน</span>WEEN</a>
-      <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navMenu">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <div id="navMenu" class="collapse navbar-collapse">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a href="homePage.html" class="nav-link">Home</a></li>
-          <li class="nav-item dropdown d-flex align-items-lg-center">
-            <a class="nav-link pe-0" href="boothDirectory.html">Booth</a>
-            <a class="nav-link dropdown-toggle dropdown-toggle-split ps-2" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" id="boothDropdown">
-              <span class="visually-hidden">Toggle Dropdown</span>
-            </a>
-            <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="boothDropdown" id="dropdown-item" >
-              <li><a class="dropdown-item" href="booth1.html">Food</a></li>
-              <li><a class="dropdown-item" href="booth2.html">Desert</a></li>
-              <li><a class="dropdown-item" href="booth3.html">Costume</a></li>
-              <li><a class="dropdown-item" href="booth3.html">Amusement</a></li>
-            </ul>
-          </li>
-          <li class="nav-item"><a href="registration.html" class="nav-link">Register</a></li>
-          <li class="nav-item"><a href="feedback.html" class="nav-link">Feedback</a></li>
-        </ul>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HALLOWวัด งานWEEN</title>
+    <link rel="stylesheet" href="/css/homePage_style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container">
+        <a
+          class="navbar-brand"
+          href="index.html"
+          id="navbrand"
+        >HALLOW<span
+            id="thai-brand"
+          >วัด งาน</span>WEEN</a>
+        <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navMenu">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div id="navMenu" class="collapse navbar-collapse">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+            <li class="nav-item dropdown d-flex align-items-lg-center">
+              <a class="nav-link pe-0" href="boothDirectory.html">Booth</a>
+              <a class="nav-link dropdown-toggle dropdown-toggle-split ps-2" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" id="boothDropdown">
+                <span class="visually-hidden">Toggle Dropdown</span>
+              </a>
+              <ul
+                class="dropdown-menu dropdown-menu-dark"
+                aria-labelledby="boothDropdown"
+                id="dropdown-item"
+              >
+                <li><a class="dropdown-item" href="booth1.html">Food</a></li>
+                <li><a class="dropdown-item" href="booth2.html">Desert</a></li>
+                <li><a class="dropdown-item" href="booth3.html">Costume</a></li>
+                <li><a class="dropdown-item" href="booth3.html">Amusement</a></li>
+              </ul>
+            </li>
+            <li class="nav-item"><a href="registration.html" class="nav-link">Register</a></li>
+            <li class="nav-item"><a href="feedback.html" class="nav-link">Feedback</a></li>
+          </ul>
+        </div>
       </div>
-
-    </div>
-  </nav>
-
-  <!-- Header -->
-  <header class="hero">
-    <div class="container">
-      <h1 id="stline" >HALLOW <span id="thai" >วัด</span> </h1>
-      <h1 id="ndline" ><span id="thai" >งาน</span> WEEN</h1>
-    </div>
-    <svg class="wave" viewBox="0 0 1440 320" preserveAspectRatio="none" aria-hidden="true">
-      <path fill="#f0e1c9" d="M0,280 C550,-10 800,530 1440,183 L1440,320 L0,320 Z"/>
-    </svg>
-  </header>
-
-  <section class="container my-5 text-center" id="reg">
-    <h2 id="register">REGISTER NOW</h2>
-    <a href="registration.html" class="btn btn-register" id="registerbtn">REGISTER</a>
-  </section>
-
-  <!-- About -->
-  <section class="container my-5 text-center" id="about">
-    <h2>WHAT'S OUR FESTIVAL ABOUT</h2>
-    <p>คำอธิบาย</p>
-    <img src="ภาพบรรยากาศ.jpg" alt="Festival Vibe" class="img-fluid rounded shadow">
-  </section>
-
-  <!-- Booth -->
-  <section class="container text-center my-5" id="booth">
-    <h2>สายกิน ห้ามพลาด</h2>
-    <div class="row mt-4">
-      <div class="col-12">
-        <img src="รูปร้านที่1.jpg" class="img-fluid rounded shadow" alt="Booth 1">
-        <h5 class="mt-2" id="Food" >Food</h5>
+    </nav>
+    <!-- Header -->
+    <header class="hero">
+      <div class="container">
+        <h1
+          id="stline"
+        >HALLOW
+          <span
+            id="thai"
+          >วัด</span></h1>
+        <h1
+          id="ndline"
+        ><span
+            id="thai"
+          >งาน</span>
+          WEEN</h1>
       </div>
-      <div class="col-12 mt-4">
-        <img src="รูปร้านที่2.jpg" class="img-fluid rounded shadow" alt="Booth 2">
-        <h5 class="mt-2" id="Desert">Desert</h5>
+      <svg class="wave" viewBox="0 0 1440 320" preserveAspectRatio="none" aria-hidden="true">
+        <path fill="#f0e1c9" d="M0,280 C550,-10 800,530 1440,183 L1440,320 L0,320 Z"/>
+      </svg>
+    </header>
+    <section class="container my-5 text-center" id="reg">
+      <h2 id="register">REGISTER NOW</h2>
+      <a href="registration.html" class="btn btn-register" id="registerbtn">REGISTER</a>
+    </section>
+    <!-- About -->
+    <section class="container my-5 text-center" id="about">
+      <h2>WHAT'S OUR FESTIVAL ABOUT</h2>
+      <p>เทศกาลรวมคนรักความหลอน มาพร้อมกับความมันส์เต็มระบบ อิ่มอร่อย หวานร้อยถึงใจ เล่นเครื่องเล่นวนไป</p>
+      <p>เตรียมคอสตูมให้พร้อม ใครไม่พร้อมมาเสริมเติมแต่งหน้างานได้ แล้วมาเจอกันที่ลานเขาควาย เข้าฟรี !</p>
+      <img src="ภาพบรรยากาศ.jpg" alt="Festival Vibe" class="img-fluid rounded shadow">
+    </section>
+    <!-- Booth -->
+    <section class="container text-center my-5" id="booth">
+      <h2>สายกิน ห้ามพลาด</h2>
+      <div class="row mt-4">
+        <div class="col-12">
+          <img src="รูปร้านที่1.jpg" class="img-fluid rounded shadow" alt="Booth 1">
+          <h4 class="mt-2" id="Food">โซ้ยแซ่บหลอน</h4>
+          <h5 class="mt-2" id="Food-description">หิวโหย อยากโซ้ยแซ่บ ขอเรียนเชิญมาลิ้มรสชาติกลมกล่อม ราคาย่อมเยา รับประกันอร่อยถึงใจ</h5>
+        </div>
+        <div class="col-12 mt-4">
+          <img src="รูปร้านที่2.jpg" class="img-fluid rounded shadow" alt="Booth 2">
+          <h4 class="mt-2" id="Desert">สวีทสว๊าท</h4>
+          <h5 class="mt-2" id="Desert-description">ใครอยากเติมหวานต้องมาลอง รอบนี้มาในธีมหลอน แต่รับรองหวานจับใจเช่นเดิม</h5>
+        </div>
+        <h2>สายบันเทิง ไม่มีสะดุด</h2>
+        <div class="col-12 mt-4">
+          <img src="รูปร้านที่3.jpg" class="img-fluid rounded shadow" alt="Booth 3">
+          <h4 class="mt-2" id="Costume">คอสตูมคอสใจ</h4>
+          <h5 class="mt-2" id="Costume-description">มาแต่ตัวก็ปังได้ แวะมาแปลงร่างด่วน เช่าชุดกับเราแล้วไปสนุกกันเลย</h5>
+        </div>
+        <div class="col-12 mt-4">
+          <img src="รูปร้านที่4.jpg" class="img-fluid rounded shadow" alt="Booth 4">
+          <h4 class="mt-2" id="Amusement">ลานสวรรค์</h4>
+          <h5 class="mt-2" id="Amusement-description">ใครอยากถึงสวรรค์ มาลองเล่นเครื่อเล่นพี่ ที่ลานสวรรค์</h5>
+        </div>
       </div>
-      <h2>สายบันเทิง ไม่มีสะดุด</h2>
-      <div class="col-12 mt-4">
-        <img src="รูปร้านที่3.jpg" class="img-fluid rounded shadow" alt="Booth 3">
-        <h5 class="mt-2" id="Costume">Costume</h5>
+    </section>
+    <!-- Team -->
+    <section class="team py-5" id="team">
+      <div class="container">
+        <h2
+          class="text-center"
+          id="dev-team"
+        >DEVELOPER TEAM</h2>
+        <div class="team-list">
+          <div class="row">
+            <div class="col-lg-4 col-md-4 col-12">6809540146</div>
+            <div class="col-lg-4 col-md-5 col-12">น.ส.ณัฐวรา พลมั่น</div>
+            <div class="col-lg-4 col-md-3 col-12">UX/UI designer</div>
+          </div>
+          <div class="row">
+            <div class="col-lg-4 col-md-4 col-12">6809540179</div>
+            <div class="col-lg-4 col-md-5 col-12">นาย สิริภัท ธนสุขโสภณ</div>
+            <div class="col-lg-4 col-md-3 col-12">Developer</div>
+          </div>
+          <div class="row">
+            <div class="col-lg-4 col-md-4 col-12">6809616870</div>
+            <div class="col-lg-4 col-md-5 col-12">นาย ฐปนรรฆ์ มหาไชยวงศ์</div>
+            <div class="col-lg-4 col-md-3 col-12">Team lead</div>
+          </div>
+          <div class="row">
+            <div class="col-lg-4 col-md-4 col-12">6809616946</div>
+            <div class="col-lg-4 col-md-5 col-12">นาย สุวพัชร จงจิตต์</div>
+            <div class="col-lg-4 col-md-3 col-12">Developer</div>
+          </div>
+          <div class="row">
+            <div class="col-lg-4 col-md-4 col-12">6809617050</div>
+            <div class="col-lg-4 col-md-5 col-12">นาย ชิษณุพงศ์ คำเขื่อน</div>
+            <div class="col-lg-4 col-md-3 col-12">Developer</div>
+          </div>
+          <div class="row">
+            <div class="col-lg-4 col-md-4 col-12">6809617423</div>
+            <div class="col-lg-4 col-md-5 col-12">นาย วีรยุทธ ปะวะโน</div>
+            <div class="col-lg-4 col-md-3 col-12">Testers/QA team, UX/UI designer</div>
+          </div>
+          <div class="row">
+            <div class="col-lg-4 col-md-4 col-12">6809617480</div>
+            <div class="col-lg-4 col-md-5 col-12">นาย อติวิชญ์ คงธัญธรรม</div>
+            <div class="col-lg-4 col-md-3 col-12">Developer</div>
+          </div>
+          <div class="row">
+            <div class="col-lg-4 col-md-4 col-12">6809660027</div>
+            <div class="col-lg-4 col-md-5 col-12">นาย สิรวิชญ์ กฤดาธิการวุฒิ</div>
+            <div class="col-lg-4 col-md-3 col-12">Software architect</div>
+          </div>
+          <div class="row">
+            <div class="col-lg-4 col-md-4 col-12">6809681452</div>
+            <div class="col-lg-4 col-md-5 col-12">น.ส. ปาณิศรา แวงดิศร</div>
+            <div class="col-lg-4 col-md-3 col-12">UX/UI designer</div>
+          </div>
+          <div class="row">
+            <div class="col-lg-4 col-md-4 col-12">6809681486</div>
+            <div class="col-lg-4 col-md-5 col-12">นาย สุวิจักษณ์ แซ่ท้าว</div>
+            <div class="col-lg-4 col-md-3 col-12">Developer</div>
+          </div>
+        </div>
       </div>
-      <div class="col-12 mt-4">
-        <img src="รูปร้านที่4.jpg" class="img-fluid rounded shadow" alt="Booth 4">
-        <h5 class="mt-2" id="Amusement">Amusement</h5>
+    </section>
+    <!-- Footer -->
+    <footer class="footer-custom">
+      <div class="container text-center">
+        <div class="social-icons">
+          <a href="#"><i class="bi bi-instagram"></i></a>
+          <a href="#"><i class="bi bi-facebook"></i></a>
+          <a href="#"><i class="bi bi-tiktok"></i></a>
+        </div>
+        <div class="footbar">
+          <a href="boothDirectory.html">booth</a>
+          <a href="registration.html">register</a>
+          <a href="feedback.html">feedback</a>
+        </div>
       </div>
+<<<<<<< HEAD
     </div>
   </section>
 
@@ -176,4 +272,9 @@
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+=======
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+>>>>>>> 0ad2a484b58d3f2e92c08629832591d205628e61
 </html>

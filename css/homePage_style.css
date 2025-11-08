@@ -102,15 +102,26 @@ header h1 {
   font-size: 3rem;
 }
 
+#about p{
+  font-family: 'MN_Lon2';
+  font-size: 2rem;
+}
+
 #booth h2{
   font-family: 'MN_Lon2';
   font-size: 3.5em;
   color: #CE642A;
 }
 
-#booth h5{
+#booth h4{
   font-family: 'MN_Lon2';
   font-size: 2.5em;
+}
+
+#booth h5{
+  font-family: 'MN_Lon2';
+  font-style: italic;
+  font-size: 1.5em;
 }
 
 #dev-team{
@@ -120,6 +131,10 @@ header h1 {
 .team{
   font-family: 'MN_Lon2';
   font-size: 2em;
+}
+
+.team h2{
+  text-align: center;
 }
 
 .team-list{
