@@ -16,6 +16,7 @@ body {
   line-height: 1.6;
   background-image: url('/resources/Background.jpg');
 }
+
 #navbrand {
   font-family: 'Creepster';
   color: #CE642A;
@@ -30,42 +31,96 @@ body {
 #dropdown-item {
   font-size: 0.9em;
 }
-footer{
+
+footer {
   background-color: #201D20;
   height: 30%;
   padding: 30%;
   border: 1px solid red;
 }
-.social-icons{
+
+.social-icons {
   display: flex;
   justify-content: center;
   gap: 40px;
 }
-.social-icons a{
+
+.social-icons a {
   text-decoration: none;
   color: #fff;
   font-size: 2em;
   transition: all 0.3s ease;
 }
-.social-icons i:hover{
+
+.social-icons i:hover {
   color: #ffffff;
   text-shadow: 0 0 15px #ff7b00;
   transform: scale(1.2);
 }
-.footbar{
+
+.footbar {
   margin-top: 50px;
   display: flex;
   justify-content: center;
   gap: 25px;
   font-family: Athiti;
 }
-.footbar a{
+
+.footbar a {
   text-decoration: none;
   color: #ffffff;
   transition: all 0.2s ease;
 }
-.footbar a:hover{
+
+.footbar a:hover {
   color: #ffffff;
   text-shadow: 0 0 15px #ff7b00;
   transform: scale(1.2);
+}
+
+.title {
+  font-size: 100px;
+  margin-top: 40px;
+  color: #CE642A;
+  text-align: center;
+  font-family: 'Creepster';
+}
+
+.booth-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  flex-wrap: wrap;
+  margin-top: 40px;
+  padding: 20px;
+}
+
+.booth-card {
+  border-radius: 15px;
+  padding: 10px;
+  width: 350px;
+  height: 500px;
+  transition: transform 0.3s, box-shadow 0.3s;
+  font-family: 'MN_Lon2';
+  font-size: 100%;
+  text-decoration: none;
+  color: #000; 
+}
+
+.booth-card img {
+  width: 350px;
+  height: 350px;
+  border-radius: 10px;
+}
+
+.booth-card p {
+  margin-top: 10px;
+  font-size: 50px;
+  text-align: center;
+}
+
+.booth-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0rgba(0, 0, 0, 0.3);
 }
