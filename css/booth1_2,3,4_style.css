@@ -109,6 +109,7 @@ h1 {
   text-align: center;
   padding: 35px;
   font-size: 20px;
+  font-size: 1.5em;
 }
 
 .Caption .right1 {
@@ -172,4 +173,10 @@ h1 {
   border-radius: 8px;
   margin-bottom: 10px;
   object-fit: cover;
+}
+#item-card{
+  cursor: pointer;
+}
+#item-card:hover{
+  transform: scale(1.02);
 }
