@@ -24,7 +24,8 @@
   }
 }
 body{
-  line-height: 1.6;  
+  line-height: 1.6;
+  overflow-x: hidden; 
 }
 #navbrand{
   font-family: 'Creepster';
@@ -39,84 +40,178 @@ body{
   font-family: 'MN_Lon2';
   font-size: 1.5em;
 }
-.register-container{
-  text-align: center;
-  height: 750px;
+
+section{
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2px;
+  flex-wrap: wrap;
+  overflow: hidden;
+  background-repeat: no-repeat;
+  z-index: 1;
 }
-.register-container h1{
-  font-family: Creepster;
-  font-size: 3em;
-  margin: 50px;
-}
-.register{
+
+.register-box{
+  border-radius: 5px;
+  box-shadow: 3px 5px 5px 3px;
   margin: 30px;
-  width: 90%;
+  background: #000000d2;
 }
-.register legend{
-  margin: 10px;
-  margin-bottom: 50px;
+.register-content{
+  margin: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.register-content h2{
   font-family: Creepster;
-  font-size: 4.0em;
+  font-size: 2.5em;
+  margin-top: 10px;
+  color: #CE642A;
+  font-weight: bold;
 }
-.form-container{
-  border-radius: 30px;
-  margin: 15px;
-  box-shadow: 10px 10px 20px black;
-  background-color: #CE642A;
+.form-box{
+  width: 90%;
+  padding: 15px;
 }
-form label{
+.form-box form{
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: stretch;
+}
+.form-box input{
+  width: 100%;
+  box-sizing: border-box;
+  display: block;
+  border-bottom: 1px solid #aaa;
+  border-right: none;
+  background: #00000025;
+  color: #aaa;
+  font-size: 1em;
+  padding: 5px;
+}
+.form-box input::placeholder{
+  color: #aaa;
+  font-style: italic;
+  letter-spacing: 1px;
+  font-size: 1em;
+  padding: 5px;
+}
+.form-box input:focus{
+  border: none;
+  outline: none;
+  transition: transform 0.3s ease;
+  border-bottom: 1px solid;
+}
+.form-box input:hover{
+  background: #3e3e3e;
+}
+.form-box .submit{
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+}
+.form-box button{
+  background: #CE642A;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  padding: 5px 20px;
   font-family: Creepster;
   font-size: 1.5em;
 }
-.row{
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+.form-box button:hover{
+  background: #ff7b00;
 }
-.col{
-  flex: 1 1 30%;
-  padding: 20px;
-  min-width: 250px;
-}
-#nickname input{
-  width: 40%;
-}
-form input{
-  border: none;
-  width: 80%;
-  padding: 10px 10px;
-  transition: all 0.3s ease;
-  border-radius: 30px;
-}
-form input:focus{
-  outline: none;
-  border: none;
-  box-shadow: 5px 5px 10px #ff9c2b;
-  transition: 0.2s;
-  border-radius: 30px;
-}
-form input:hover{
-  box-shadow: 5px 5px 20px #ff9c2b;
+.form-box button:focus{
   transform: scale(1.05);
 }
-form button{
-  border: none;
-  border-radius: 20px;
-  background-color: rgba(93, 31, 98, 0.671);
-  font-size: 25px;
+.thx-wrap{
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%) scale(0);
+  padding: 30px;
+  transition: transform 0.4s ease;
+  z-index: 1000;
+  width: 90%;
+  max-width: 500px;
+  padding: 50px;
+}
+.thx-box{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  background: none;
+}
+.thx-box h2{
   font-family: Creepster;
-  padding: 5px 30px;
+  font-size: 5em;
+  font-weight: bold;
+  color: rgb(190, 12, 12);
+}
+.link{
+  display: flex;
+  gap: 30px;
+}
+.thx-box a{
+  text-decoration: none;
+  color: rgb(190, 12, 12);
+  font-family: Creepster;
+  font-size: 1.5em;
+  font-weight: lighter;
+}
+.thx-box a:hover{
+  text-shadow: 0 0 15px rgb(255, 0, 0);
+  transform: scale(1.05);
+}
+.thx-box button{
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: none;
+  border: none;
+  font-size: 2em;
+  color: rgb(190, 12, 12);
   cursor: pointer;
-  transition: 0.3s ease;
-  margin: 10px;
-  color: #fff;
+  font-family: 'Creester', cursive;
+  transition: all 0.3s ease;
+  z-index: 10;
+
 }
-form button:hover{
-  background-color: rgba(93, 31, 98, 0.671);
-  transform: scale(1.1);
-  box-shadow: 0 0 20px #ff9c2b;
-  color: #fff;
+.thx-box button:focus{
+  transform: scale(1.05);
+  text-shadow: 0 0 15px rgb(255, 0, 0);
 }
+
+.thx-wrap.show{
+    transform: translate(-50%, -50%) scale(1);
+    animation: popIn 0.5s ease, float 3s ease-in-out infinite;
+}
+.overlay{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(4px);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+.overlay.show{
+    opacity: 1;
+    pointer-events: all;
+}
+
 footer{
   background-color: #201D20;
   height: 30%;

@@ -15,6 +15,7 @@
 body{
   line-height: 1.6;           
   background-color: #f0e1c9 !important;
+  overflow-x: hidden;
 }
 
 #navbrand{
@@ -78,9 +79,8 @@ header h1 {
 
 #spider {
   align-items: center;
-  width: 1000px;
-  height: 150px;
   margin-bottom: 15px;
+  width: 100%;
 }
 
 #register{

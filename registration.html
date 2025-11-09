@@ -48,43 +48,43 @@
       </div>
     </nav>
     <!--register-->
-    <section class="register-container">
-      <div class="register">
-        <legend>Join our spooky night!</legend>
-        <div class="form-container">
-          <form action="" method="get">
-            <div class="row">
-              <div class="col">
-                <label>Firstname</label><br>
-                <input type="text" name="username" minlength="3" maxlength="20" placeholder=" " required>
-              </div>
-              <div class="col">
-                <label>Lastname</label><br>
-                <input type="text" name="username" minlength="3" maxlength="20" placeholder=" " required>
-              </div>
+    <section class="register-wrap" style="background-image: url('resources/Background.jpg'); background-size: cover;
+  background-position: center;">
+        <div class="overlay" id="overlay"></div>
+        <div class="register-box">
+            <div class="register-content">
+                <h2>Join our spooky night!</h2>
+                <div class="form-box">
+                    <form action="" method="get" onsubmit="toggle_thx(event)">
+                        <input type="text" name="username" minlength="3" maxlength="40" placeholder="Fullname" required>
+                        <input type="tel" pattern="^0\d{9}" title="*error input" name="phonenumber" maxlength="10" placeholder="Phone number">
+                        <input type="email" name="email" placeholder="Email">
+                        <div class="submit">
+                            <button type="submit">Submit</button>
+                        </div>
+                    </form>
+                </div>
             </div>
-            <div class="row">
-              <div id="nickname" class="col">
-                <label>Nickname</label><br>
-                <input type="text" name="username" minlength="1" maxlength="10" placeholder=" " required><br>
-              </div>
-              <div class="col">
-                <label>phonenumber</label><br>
-                <input type="tel" pattern="^0\d{9}" title="*error input" name="phonenumber" maxlength="10" placeholder=" "><br>
-              </div>
-            </div>
-            <div class="row">
-              <div id="email" class="col">
-                <label>email</label><br>
-                <input type="email" name="email" placeholder=" "><br><br>
-              </div>
-            </div>
-            <button type="submit">Submit</button>
-          </form>
-        </div>
-      </div>
-      <h1>thank you!!</h1>
     </section>
+    <div id="popup-thx" class="thx-wrap">
+        <div class="thx-box">
+            <h2>ENJOY YOUR SPOOKY NIGHT !!</h2>
+            <div class="link">
+                <a href="index.html">home</a>
+                <a href="boothDirectory.html">booth</a>
+            </div>
+            <button onclick="toggle_thx(event)">x</button>
+        </div>
+    </div>
+    <script>
+        function toggle_thx(e){
+            e.preventDefault();
+            const form = document.getElementById('popup-thx');
+            const overlay = document.getElementById('overlay');
+            form.classList.toggle('show');
+            overlay.classList.toggle('show')
+        }
+    </script>
     <!-- Footer -->
 
     <footer class="footer-custom">
