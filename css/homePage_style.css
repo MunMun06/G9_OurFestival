@@ -127,6 +127,80 @@ header h1 {
   font-size: 2rem;
 }
 
+#about-img {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  max-width: 900px;
+  aspect-ratio: 16/9;
+  overflow: hidden;
+  border-radius: 20px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.3);
+  margin-bottom: 50px;
+}
+
+#about-img img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  top: 0;
+  left: 0;
+  opacity: 1;
+  transition: transform 0.6s ease-in-out;
+}
+
+.about-img-1 { z-index: 1; transform: translateX(0); }
+.about-img-2 { z-index: 2; transform: translateX(100%); }
+.about-img-3 { z-index: 3; transform: translateX(100%); }
+.about-img-4 { z-index: 4; transform: translateX(100%); }
+.about-img-5 { z-index: 5; transform: translateX(100%); }
+
+#about-img:hover .about-img-2 {
+  animation: slideIn1 0.6s forwards;
+  animation-delay: 0s;
+}
+#about-img:hover .about-img-3 {
+  animation: slideIn2 1s forwards;
+  animation-delay: 1s;
+}
+#about-img:hover .about-img-4 {
+  animation: slideIn3 1s forwards;
+  animation-delay: 2s;
+}
+#about-img:hover .about-img-5 {
+  animation: slideIn4 1s forwards;
+  animation-delay: 3s;
+}
+
+@keyframes slideIn1 {
+  from { transform: translateX(100%); }
+  to { transform: translateX(0); }
+}
+@keyframes slideIn2 {
+  from { transform: translateX(100%); }
+  to { transform: translateX(0); }
+}
+@keyframes slideIn3 {
+  from { transform: translateX(100%); }
+  to { transform: translateX(0); }
+}
+@keyframes slideIn4 {
+  from { transform: translateX(100%); }
+  to { transform: translateX(0); }
+}
+
+#about-img:not(:hover) .about-img-1 {
+  transform: translateX(0);
+}
+#about-img:not(:hover) .about-img-2,
+#about-img:not(:hover) .about-img-3,
+#about-img:not(:hover) .about-img-4,
+#about-img:not(:hover) .about-img-5 {
+  transform: translateX(100%);
+}
+
+
 #booth h2{
   font-family: 'MN_Lon2';
   font-size: 3.5em;
