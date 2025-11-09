@@ -1,13 +1,13 @@
 @font-face{
   font-family: 'MN_Lon2';
-  src: url(/font/MN_Lon2.ttf);
+  src: url('../font/MN_Lon2.ttf') format('truetype');
   font-weight: 400;
   font-style: normal;
 }
 
 @font-face{
   font-family: 'Creepster';
-  src: url(/font/Creepster-Regular.ttf);
+  src: url('../font/Creepster-Regular.ttf') format('truetype');
   font-weight: 400;
   font-style: normal;
 }
