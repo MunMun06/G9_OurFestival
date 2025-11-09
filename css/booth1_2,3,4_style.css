@@ -14,7 +14,7 @@
 
 body {
   line-height: 1.6;
-  background-image: url('/resources/Background.jpg') !important;
+  background-image: url('../resources/Background.jpg') !important;
   background-size: cover;
   background-position: center;
 }
@@ -92,7 +92,7 @@ h1 {
   font-family: 'MN_Lon2';
   font-size: 80px;
   text-align: left;
-  background-image: url('/resources/festival-ambiance-4.jpg');
+  background-image: url('../resources/festival-ambiance-4.jpg');
   color: white;
 }
 
@@ -114,7 +114,7 @@ h1 {
 
 .Caption .right1 {
   width: 100%;
-  background-image: url('/resources/booth-1-owner.webp');
+  background-image: url('../resources/booth-1-owner.webp');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -122,7 +122,7 @@ h1 {
 
 .Caption .right2 {
   width: 100%;
-  background-image: url('/resources/booth-2-owner.jpg');
+  background-image: url('../resources/booth-2-owner.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -130,7 +130,7 @@ h1 {
 
 .Caption .right3 {
   width: 100%;
-  background-image: url('/resources/booth-3-owner.png');
+  background-image: url('../resources/booth-3-owner.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -138,7 +138,7 @@ h1 {
 
 .Caption .right4 {
   width: 100%;
-  background-image: url('/resources/booth-4-owner.jpeg');
+  background-image: url('../resources/booth-4-owner.jpeg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
