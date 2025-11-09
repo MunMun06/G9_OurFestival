@@ -105,12 +105,12 @@ header h1 {
 }
 
 #pumpkin-border {
-  width: 100vw;        /* ให้กว้างเท่าหน้าจอจริง */
+  width: 100vw;
   height: auto;
   position: relative;
   left: 50%;
   right: 50%;
-  margin-left: -50vw;  /* ดึงออกจากขอบ container */
+  margin-left: -50vw;
   margin-right: -50vw;
   margin-top: 150px;
   display: block;
@@ -145,15 +145,16 @@ header h1 {
 }
 
 .booth-info .img {
-  display:flex;
+  display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .booth-pic {
   position: relative;
-  width: 900px;
-  height: 600px;
+  width: 100%;
+  max-width: 900px;
+  aspect-ratio: 3/2;
   overflow: hidden;
   border-radius: 12px;
   box-shadow: 0 6px 12px rgba(0,0,0,0.2);
@@ -167,36 +168,23 @@ header h1 {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  opacity: 0;
-  transition: opacity 0.6s ease;
+  transition: transform 0.8s ease;
 }
 
-.booth-pic img:nth-child(1) {
-  opacity: 1;
-}
+/* เริ่มต้นให้ภาพซ้อนกัน */
+.booth-pic img:nth-child(2) { transform: translateX(100%); }
+.booth-pic img:nth-child(3) { transform: translateX(200%); }
 
-.booth-picr:hover img:nth-child(1) {
-  animation: boothSlide1 3s infinite;
-}
-.booth-pic:hover img:nth-child(2) {
-  animation: boothSlide2 3s infinite;
-}
-.booth-pic:hover img:nth-child(3) {
-  animation: boothSlide3 3s infinite;
-}
+/* hover เลื่อนภาพต่อเนื่อง */
+.booth-pic:hover img:nth-child(1) { transform: translateX(-100%); }
+.booth-pic:hover img:nth-child(2) { transform: translateX(0); }
+.booth-pic:hover img:nth-child(3) { transform: translateX(100%); }
 
-@keyframes boothSlide1 {
-  0%, 33% { opacity: 1; }
-  34%, 100% { opacity: 0; }
-}
-@keyframes boothSlide2 {
-  0%, 33% { opacity: 0; }
-  34%, 66% { opacity: 1; }
-  67%, 100% { opacity: 0; }
-}
-@keyframes boothSlide3 {
-  0%, 66% { opacity: 0; }
-  67%, 100% { opacity: 1; }
+@media (max-width: 992px) {
+  .booth-pic {
+    width: 100%;
+    aspect-ratio: 3/2;
+  }
 }
 
 
