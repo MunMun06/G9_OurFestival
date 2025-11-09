@@ -132,8 +132,8 @@ header h1 {
 
 .booth-pic {
   position: relative;
-  width: 300px;
-  height: 200px;
+  width: 900px;
+  height: 600px;
   overflow: hidden;
   border-radius: 12px;
   box-shadow: 0 6px 12px rgba(0,0,0,0.2);
@@ -201,7 +201,7 @@ footer{
   background-color: #201D20;
   height: 30%;
   padding: 30%;
-  border: 1px solid red;
+
 }
 .social-icons{
   display: flex;
