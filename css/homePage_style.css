@@ -76,6 +76,13 @@ header h1 {
   top: -30px;
 }
 
+#spider {
+  align-items: center;
+  width: 1000px;
+  height: 150px;
+  margin-bottom: 15px;
+}
+
 #register{
   font-family: 'Creepster';
   font-size: 3rem;
@@ -96,6 +103,19 @@ header h1 {
 #registerbtn:hover {
   transform: scale(1.15) rotate(-2deg); 
 }
+
+#pumpkin-border {
+  width: 100vw;        /* ให้กว้างเท่าหน้าจอจริง */
+  height: auto;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;  /* ดึงออกจากขอบ container */
+  margin-right: -50vw;
+  margin-top: 150px;
+  display: block;
+}
+
 
 #about h2{
   font-family: 'Creepster';
