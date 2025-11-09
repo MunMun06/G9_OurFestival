@@ -242,23 +242,36 @@ header h1 {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.8s ease;
+  transition: transform 0.6s ease-in-out;
 }
 
-/* เริ่มต้นให้ภาพซ้อนกัน */
-.booth-pic img:nth-child(2) { transform: translateX(100%); }
-.booth-pic img:nth-child(3) { transform: translateX(200%); }
+.booth-img1 { z-index: 1; transform: translateX(0); }
+.booth-img2 { z-index: 2; transform: translateX(100%); }
+.booth-img3 { z-index: 3; transform: translateX(100%); }
 
-/* hover เลื่อนภาพต่อเนื่อง */
-.booth-pic:hover img:nth-child(1) { transform: translateX(-100%); }
-.booth-pic:hover img:nth-child(2) { transform: translateX(0); }
-.booth-pic:hover img:nth-child(3) { transform: translateX(100%); }
+.booth-pic:hover .booth-img2 {
+  animation: slideIn1 0.6s forwards;
+}
+.booth-pic:hover .booth-img3 {
+  animation: slideIn2 0.6s forwards;
+  animation-delay: 0.8s;
+}
 
-@media (max-width: 992px) {
-  .booth-pic {
-    width: 100%;
-    aspect-ratio: 3/2;
-  }
+@keyframes slideIn1 {
+  from { transform: translateX(100%); }
+  to { transform: translateX(0); }
+}
+@keyframes slideIn2 {
+  from { transform: translateX(100%); }
+  to { transform: translateX(0); }
+}
+
+.booth-pic:not(:hover) .booth-img1 {
+  transform: translateX(0);
+}
+.booth-pic:not(:hover) .booth-img2,
+.booth-pic:not(:hover) .booth-img3 {
+  transform: translateX(100%);
 }
 
 
