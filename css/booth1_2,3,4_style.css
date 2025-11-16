@@ -150,9 +150,10 @@ h1 {
   font-family: 'MN_Lon2';
   text-align: center;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 30px;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  grid-gap: 30px;
   justify-items: center;
+  align-content: center;
 }
 
 .list1 {
