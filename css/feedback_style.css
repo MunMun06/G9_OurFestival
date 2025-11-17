@@ -1,0 +1,128 @@
+@font-face{
+  font-family: 'MN_Lon2';
+  src: url('../font/MN_Lon2.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face{
+  font-family: 'Creepster';
+  src: url('../font/Creepster-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+body{
+  line-height: 1.6;           
+  background-color: #f0e1c9 !important;
+  overflow-x: hidden;
+}
+
+#navbrand{
+  font-family: 'Creepster';
+  color:#CE642A;
+  font-size: 2em;
+}
+
+#navMenu{
+  font-family: 'Creepster';
+  font-size: 1.5em;
+}
+
+#dropdown-item{
+  font-size: 0.9em;
+}
+
+#thai-brand{
+  font-family: 'MN_Lon2';
+  font-size: 1.5em;
+}
+
+header{
+  background-color: #211C20;
+}
+
+header h1 {
+  font-family: 'Creepster';
+  color: #CE642A;
+  font-size: 5rem;
+  text-align: center;
+}
+
+body {
+  font-family: "Athiti", sans-serif;
+  font-weight: 200;
+  font-style: normal;
+}
+
+#navbrand {
+  font-family: 'Knewave', cursive;
+  font-size: 1.8rem;
+  color: #ffc107; /* Bootstrap warning yellow */
+}
+
+#thai-brand {
+  font-family: 'Kanit', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #fff; /* White */
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.feedback-title {
+  font-family: 'Knewave', cursive;
+  color: #ffffff;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+  font-size: 2.5rem;
+}
+
+/* Custom styles for the table questions to make them bolder */
+.table th[scope="row"] {
+  font-weight: 700;
+  color: #3b3a4a;
+}
+
+/* Custom styles for radio buttons to make them larger and easier to click */
+.form-check-input {
+  width: 1.75em; /* Made slightly larger */
+  height: 1.75em; /* Made slightly larger */
+  cursor: pointer;
+  border-color: #3b3a4a;
+  border-width: 2px; /* Added thicker border */
+  background-color: #fff; /* Ensured white background */
+}
+
+.form-check-input:checked {
+  background-color: rgb(214, 116, 81);
+  border-color: rgb(214, 116, 81);
+}
+
+/* Added a custom focus style for better visibility */
+.form-check-input:focus {
+  border-color: #3b3a4a;
+  box-shadow: 0 0 0 0.25rem rgba(59, 58, 74, 0.25);
+}
+
+/* Custom submit button style */
+.btn-submit-custom {
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.btn-submit-custom:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+}
+
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+  .feedback-title {
+    font-size: 2rem; /* Slightly smaller title on mobile */
+  }
+
+  /* Make the table text smaller on mobile to help fit */
+  .table th[scope="row"] {
+    font-size: 0.9rem;
+  }
+}
