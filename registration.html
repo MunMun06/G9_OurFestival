@@ -50,34 +50,35 @@
     <!--register-->
     <section class="register-wrap" style="background-image: url('resources/Background.jpg'); background-size: cover;
   background-position: center;">
-        <div class="overlay" id="overlay"></div>
-        <div class="register-box">
-            <div class="register-content">
-                <h2>Join our spooky night!</h2>
-                <div class="form-box">
-                    <form action="" method="get" onsubmit="toggle_thx(event)">
-                        <input type="text" name="username" minlength="3" maxlength="40" placeholder="Fullname" required>
-                        <input type="tel" pattern="^0\d{9}" title="*error input" name="phonenumber" maxlength="10" placeholder="Phone number" required>
-                        <input type="email" name="email" placeholder="Email">
-                        <div class="submit">
-                            <button type="submit">Join</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
+      <div class="overlay" id="overlay"></div>
+      <div class="register-box">
+        <div class="register-content">
+          <h2>Join our spooky night!</h2>
+          <div class="form-box">
+            <form action="" method="get" onsubmit="toggle_thx(event)">
+              <input type="text" name="username" minlength="3" maxlength="40" placeholder="Fullname" required>
+              <input type="tel" pattern="^0\d{9}" title="*error input" name="phonenumber" maxlength="10" placeholder="Phone number" required>
+              <input type="email" name="email" placeholder="Email">
+              <div class="submit">
+                <button type="submit">Join</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
     </section>
     <div id="popup-thx" class="thx-wrap">
-        <div class="thx-box">
-            <h2>ENJOY YOUR SPOOKY NIGHT !!</h2>
-            <div class="link">
-                <a href="index.html">home</a>
-                <a href="boothDirectory.html">booth</a>
-            </div>
-            <button onclick="toggle_thx(event)">x</button>
+      <div class="thx-box">
+        <h2>ENJOY YOUR SPOOKY NIGHT !!</h2>
+        <div class="link">
+          <a href="index.html">home</a>
+          <a href="boothDirectory.html">booth</a>
         </div>
+        <button onclick="toggle_thx(event)">x</button>
+      </div>
     </div>
     <script>
-        function toggle_thx(e){
+      function toggle_thx(e){
             e.preventDefault();
             const form = document.getElementById('popup-thx');
             const overlay = document.getElementById('overlay');
@@ -86,7 +87,6 @@
         }
     </script>
     <!-- Footer -->
-
     <footer class="footer-custom">
       <div class="container text-center">
         <div class="social-icons">
