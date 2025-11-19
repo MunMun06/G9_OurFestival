@@ -117,7 +117,7 @@ if (isset($_SESSION['flash_message'])) {
               </ul>
             </li>
             <li class="nav-item"><a href="registration.php" class="nav-link">Register</a></li>
-            <li class="nav-item"><a href="feedback.html" class="nav-link">Feedback</a></li>
+            <li class="nav-item"><a href="feedback.php" class="nav-link">Feedback</a></li>
           </ul>
         </div>
       </div>
