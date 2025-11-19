@@ -111,7 +111,7 @@ if (isset($_SESSION['flash_message'])) {
                 <li><a class="dropdown-item" href="booth4.html">Amusement</a></li>
               </ul>
             </li>
-            <li class="nav-item"><a href="registration.html" class="nav-link">Register</a></li>
+            <li class="nav-item"><a href="registration.php" class="nav-link">Register</a></li>
             <li class="nav-item"><a href="feedback.html" class="nav-link">Feedback</a></li>
           </ul>
         </div>
