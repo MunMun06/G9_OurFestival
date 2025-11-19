@@ -23,6 +23,11 @@ body {
   font-size: 2em;
 }
 
+#thai-brand{
+  font-family: 'MN_Lon2';
+  font-size: 1.5em;
+}
+
 #navMenu {
   font-family: 'Creepster';
   font-size: 1.5em;
