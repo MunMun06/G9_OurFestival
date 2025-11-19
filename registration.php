@@ -14,6 +14,11 @@ if (file_exists($dataFile)) {
   $records = [];
 }
 
+$participants = 0;
+foreach ($records as $count){
+  $participants += 1;
+}
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   $username  = trim($_POST['username']  ?? '');
   $phonenumber = trim($_POST['phonenumber'] ?? '');
@@ -134,6 +139,7 @@ if (isset($_SESSION['flash_message'])) {
               </div>
             </form>
           </div>
+          <h4>Current participants : <?=$participants?></h4>
         </div>
       </div>
     </section>

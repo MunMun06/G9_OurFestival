@@ -74,6 +74,12 @@ section{
   color: #CE642A;
   font-weight: bold;
 }
+.register-content h4{
+  font-family: Creepster;
+  font-size: 1.5em;
+  color: #CE642A;
+  font-weight: bold;
+}
 .form-box{
   width: 90%;
   padding: 15px;
