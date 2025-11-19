@@ -1,3 +1,83 @@
+<?php
+session_start();
+
+$dataFile = 'feedbackdata.json';
+
+$currentData = [
+    'summary' => [],
+    'reviews' => []
+];
+
+if (file_exists($dataFile)) {
+    $loaded = json_decode(file_get_contents($dataFile), true);
+    
+    if (is_array($loaded)) {
+        if (isset($loaded[0])) {
+            $currentData['reviews'] = $loaded;
+        } 
+        elseif (isset($loaded['reviews'])) {
+            $currentData = $loaded;
+        }
+    }
+}
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    
+    $q1 = htmlspecialchars($_POST['q1'] ?? 0);
+    $q2 = htmlspecialchars($_POST['q2'] ?? 0);
+    $q3 = htmlspecialchars($_POST['q3'] ?? 0);
+    $q4 = htmlspecialchars($_POST['q4'] ?? 0);
+    $q5 = htmlspecialchars($_POST['q5'] ?? 0);
+    $comments = htmlspecialchars($_POST['Comments'] ?? '-');
+
+    $currentData['reviews'][] = [
+        'q1' => $q1, 
+        'q2' => $q2, 
+        'q3' => $q3, 
+        'q4' => $q4, 
+        'q5' => $q5, 
+        'comments' => $comments
+    ];
+
+    $totalRecords = count($currentData['reviews']);
+    $sumQ1 = 0; $sumQ2 = 0; $sumQ3 = 0; $sumQ4 = 0; $sumQ5 = 0;
+
+    foreach ($currentData['reviews'] as $row) {
+        $sumQ1 += $row['q1'] ?? 0;
+        $sumQ2 += $row['q2'] ?? 0;
+        $sumQ3 += $row['q3'] ?? 0;
+        $sumQ4 += $row['q4'] ?? 0;
+        $sumQ5 += $row['q5'] ?? 0;
+    }
+
+    if ($totalRecords > 0) {
+        $avgQ1 = number_format($sumQ1 / $totalRecords, 3);
+        $avgQ2 = number_format($sumQ2 / $totalRecords, 3);
+        $avgQ3 = number_format($sumQ3 / $totalRecords, 3);
+        $avgQ4 = number_format($sumQ4 / $totalRecords, 3);
+        $avgQ5 = number_format($sumQ5 / $totalRecords, 3);
+    } else {
+        $avgQ1 = $avgQ2 = $avgQ3 = $avgQ4 = $avgQ5 = 0;
+    }
+
+    $finalOutput = [
+        'summary' => [
+            'total_responses' => $totalRecords,
+            'last_updated' => date('Y-m-d'),
+            'averages' => [
+                'q1' => $avgQ1,
+                'q2' => $avgQ2,
+                'q3' => $avgQ3,
+                'q4' => $avgQ4,
+                'q5' => $avgQ5
+            ]
+        ],
+        'reviews' => $currentData['reviews']
+    ];
+
+    file_put_contents($dataFile, json_encode($finalOutput, JSON_PRETTY_PRINT));
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -48,7 +128,7 @@
     <div class="container col-md-6 py-5 rounded-5 mb-3" style="background-color: rgb(214, 116, 81);">
       <!-- Added text-center and mb-4 for better spacing and alignment -->
       <h1 class="feedback-title text-center mb-4">PLEASE LEAVE YOUR FEEDBACK</h1>
-      <form method="get" action="feedback.html">
+      <form method="post" action="">
         <div class="card p-4 mx-auto" style="max-width: 700px;">
           <div class="card-body p-0">
             <!-- Added .table-responsive to this div -->
