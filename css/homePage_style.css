@@ -52,8 +52,10 @@ header h1 {
 .wave{
   display: block;
   width: 100%;
-  height: auto;
-  position: relative;
+  height: 10vw; 
+  min-height: 60px; 
+  max-height: 150px;
+  object-fit: fill;
 }
 
 #thai{
@@ -294,8 +296,9 @@ header h1 {
 
 footer{
   background-color: #201D20;
-  height: 30%;
-  padding: 30%;
+  padding: 40px 0;
+  width: 100%;
+  text-align: center;
 
 }
 .social-icons{
