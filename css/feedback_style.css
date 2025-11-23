@@ -56,7 +56,7 @@ body {
 }
 
 #navbrand {
-  font-family: 'Knewave', cursive;
+  font-family: 'Creepster';
   font-size: 1.8rem;
   color: #ffc107; /* Bootstrap warning yellow */
 }
@@ -67,10 +67,10 @@ body {
 }
 
 .feedback-title {
-  font-family: 'Knewave', cursive;
+  font-family: 'Creepster';
   color: #ffffff;
   text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-  font-size: 2.5rem;
+  font-size: 3rem;
 }
 
 /* Custom styles for the table questions to make them bolder */

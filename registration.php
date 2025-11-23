@@ -128,7 +128,7 @@ if (isset($_SESSION['flash_message'])) {
             <form method="POST">
               <input type="text" name="username" minlength="3" maxlength="40" placeholder="Fullname" required>
               <input type="tel" pattern="^0\d{9}" title="*error input" name="phonenumber" maxlength="10" placeholder="Phone number" required>
-              <input type="email" name="email" placeholder="Email">
+              <input type="email" pattern="" name="email" placeholder="Email">
               <div class="submit">
                 <button type="submit">Join</button>
               </div>
