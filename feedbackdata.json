@@ -1,111 +1,24 @@
 {
     "summary": {
-        "total_responses": 12,
+        "total_responses": 1,
         "last_updated": "2025-11-23",
         "averages": {
-            "q1": "2.417",
-            "q2": "3.000",
-            "q3": "3.500",
-            "q4": "3.583",
-            "q5": "3.500"
+            "q1": "4.000",
+            "q2": "4.000",
+            "q3": "4.000",
+            "q4": "4.000",
+            "q5": "4.000"
         }
     },
     "reviews": [
         {
-            "q1": "3",
-            "q2": "5",
-            "q3": "4",
-            "q4": "5",
-            "q5": "3",
-            "comments": ""
-        },
-        {
-            "q1": "3",
-            "q2": "3",
-            "q3": "4",
-            "q4": "4",
-            "q5": "4",
-            "comments": ""
-        },
-        {
-            "q1": "3",
-            "q2": "3",
-            "q3": "4",
-            "q4": "4",
-            "q5": "4",
-            "comments": ""
-        },
-        {
-            "q1": "2",
-            "q2": "3",
-            "q3": "4",
-            "q4": "1",
-            "q5": "4",
-            "comments": "ดีมากๆๆๆ"
-        },
-        {
-            "q1": "5",
-            "q2": "5",
-            "q3": "5",
-            "q4": "5",
-            "q5": "5",
-            "comments": "sugoi"
-        },
-        {
-            "q1": "2",
-            "q2": "3",
-            "q3": "4",
-            "q4": "5",
-            "q5": "5",
-            "comments": "dddd"
-        },
-        {
-            "q1": "1",
-            "q2": "2",
-            "q3": "2",
-            "q4": "1",
-            "q5": "1",
-            "comments": "ddd"
-        },
-        {
-            "q1": "2",
-            "q2": "3",
-            "q3": "5",
-            "q4": "4",
-            "q5": "5",
-            "comments": "lo"
-        },
-        {
-            "q1": "1",
-            "q2": "2",
-            "q3": "4",
-            "q4": "3",
-            "q5": "2",
-            "comments": ""
-        },
-        {
-            "q1": "1",
-            "q2": "3",
-            "q3": "1",
-            "q4": "2",
-            "q5": "3",
-            "comments": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-        },
-        {
-            "q1": "2",
-            "q2": "1",
-            "q3": "3",
-            "q4": "5",
-            "q5": "4",
-            "comments": "ผมรักประเทศไทย<3<3<3"
-        },
-        {
-            "q1": "4",
-            "q2": "3",
-            "q3": "2",
-            "q4": "4",
-            "q5": "2",
-            "comments": "ส้มตำ"
+            "name": "Sirawich Kridatikanwuta",
+            "q1": 4,
+            "q2": 4,
+            "q3": 4,
+            "q4": 4,
+            "q5": 4,
+            "comments": "dsdsdsadasdsad"
         }
     ]
 }

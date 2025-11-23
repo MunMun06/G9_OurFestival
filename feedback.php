@@ -2,6 +2,7 @@
 session_start();
 
 $dataFile = 'feedbackdata.json';
+$userFile = 'data.json'; // ไฟล์ข้อมูลผู้ใช้
 $alert_message = '';
 
 $currentData = [
@@ -9,6 +10,7 @@ $currentData = [
     'reviews' => []
 ];
 
+// --- 1. โหลดข้อมูล Feedback เดิม ---
 if (file_exists($dataFile)) {
     $loaded = json_decode(file_get_contents($dataFile), true);
     
@@ -22,10 +24,22 @@ if (file_exists($dataFile)) {
     }
 }
 
+// --- 2. โหลดข้อมูลผู้ใช้จาก data.json ---
+$registeredUsers = [];
+if (file_exists($userFile)) {
+    // โหลดข้อมูลผู้ใช้ทั้งหมด
+    $registeredUsers = json_decode(file_get_contents($userFile), true);
+    /*
+    if (!is_array($registeredUsers)) {
+        $registeredUsers = [];
+    }
+    */
+}
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
-    $alert_message = 'Your feedback has been sent!';
-
+    // รับค่าและทำความสะอาดข้อมูล
+    $name = htmlspecialchars($_POST['name'] ?? '');
     $q1 = htmlspecialchars($_POST['q1'] ?? 0);
     $q2 = htmlspecialchars($_POST['q2'] ?? 0);
     $q3 = htmlspecialchars($_POST['q3'] ?? 0);
@@ -33,12 +47,46 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $q5 = htmlspecialchars($_POST['q5'] ?? 0);
     $comments = htmlspecialchars($_POST['Comments'] ?? '-');
 
+    $isUserFound = false;
+    foreach ($registeredUsers as $user) {
+        // ใช้ trim() เพื่อตัดช่องว่างหน้า/หลังชื่อที่กรอก
+        // ตรวจสอบกับคีย์ 'username' ใน data.json
+        if (isset($user['username']) && trim($user['username']) === trim($name)) {
+            $isUserFound = true;
+            break; 
+        }
+    }
+
+    if (!$isUserFound) {
+        // หากไม่พบชื่อผู้ใช้
+        $_SESSION['flash_message'] = "⚠️ ไม่พบชื่อในระบบ กรุณาตรวจสอบว่าคุณได้ลงทะเบียนแล้วหรือไม่";
+        header("Location: feedback.php"); 
+        exit;
+    }
+
+    // *** ส่วนที่แก้ไข: ลบรายการ Feedback เก่าที่ซ้ำซ้อนออกไป ***
+    foreach($currentData['reviews'] as $key => $review) {
+        // ตรวจสอบว่าชื่อใน review ซ้ำกับชื่อที่ส่งมาหรือไม่
+        if (isset($review['name']) && trim($review['name']) === trim($name)) {
+            // ลบรายการ Feedback เก่าออกโดยใช้ Key
+            unset($currentData['reviews'][$key]);
+        }
+    }
+
+    // *** สำคัญ: จัดเรียง Index ของ Array ใหม่หลังจากลบ ***
+    // (เพื่อให้ Array เริ่มต้นจาก 0 ใหม่ และป้องกันปัญหาในการนับจำนวน Record)
+    $currentData['reviews'] = array_values($currentData['reviews']);
+
+    // --- 4. บันทึก Feedback (ถ้าตรวจสอบผ่าน) ---
+    $alert_message = 'คำตอบของคุณถูกส่งออกไปเรียบร้อย!';
+
     $currentData['reviews'][] = [
-        'q1' => $q1, 
-        'q2' => $q2, 
-        'q3' => $q3, 
-        'q4' => $q4, 
-        'q5' => $q5, 
+        'name' => $name, // เพิ่ม name เข้าไปในข้อมูล feedback
+        'q1' => (int)$q1, // แปลงเป็น int เพื่อให้การคำนวณถูกต้อง
+        'q2' => (int)$q2,
+        'q3' => (int)$q3, 
+        'q4' => (int)$q4, 
+        'q5' => (int)$q5, 
         'comments' => $comments
     ];
 
@@ -46,6 +94,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $sumQ1 = 0; $sumQ2 = 0; $sumQ3 = 0; $sumQ4 = 0; $sumQ5 = 0;
 
     foreach ($currentData['reviews'] as $row) {
+        // คำนวณผลรวมใหม่ทั้งหมด
         $sumQ1 += $row['q1'] ?? 0;
         $sumQ2 += $row['q2'] ?? 0;
         $sumQ3 += $row['q3'] ?? 0;
@@ -77,19 +126,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         ],
         'reviews' => $currentData['reviews']
     ];
+    
     $_SESSION['flash_message'] = $alert_message;
+    // ใช้ JSON_UNESCAPED_UNICODE เพื่อให้ภาษาไทยอ่านได้
     file_put_contents($dataFile, json_encode($finalOutput, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
-    //$alert_message = 'Your feedback has been sent!';
-    //$alert_message = '';
-    // POST-Redirect-GET: Redirect ไปที่หน้าเดิมเพื่อล้างข้อมูล POST
+    
+    // POST-Redirect-GET
     header("Location: feedback.php"); 
-    exit; // **สำคัญมาก: ต้องใช้ exit; หลัง header()**
+    exit; 
 }
 
 $flash_message = '';
 if (isset($_SESSION['flash_message'])) {
     $flash_message = $_SESSION['flash_message'];
-    unset($_SESSION['flash_message']); // ล้าง Session เพื่อให้แสดง Alert เพียงครั้งเดียว
+    unset($_SESSION['flash_message']);
 }
 
 ?>
@@ -134,14 +184,14 @@ if (isset($_SESSION['flash_message'])) {
             </ul>
           </li>
           <li class="nav-item"><a href="registration.php" class="nav-link">Register</a></li>
-          <li class="nav-item"><a href="feedback.html" class="nav-link">Feedback</a></li>
+          <li class="nav-item"><a href="feedback.php" class="nav-link">Feedback</a></li>
         </ul>
       </div>
     </div>
   </nav>
     
     <!-- Feedback -->
-    <div class="container col-md-6 py-5 rounded-5 mb-3" style="background-color: rgb(214, 116, 81);">
+    <div class="feedback-box container col-md-6 py-5 mb-3">
       <!-- Added text-center and mb-4 for better spacing and alignment -->
       <h1 class="feedback-title text-center mb-4">PLEASE LEAVE YOUR FEEDBACK</h1>
       <form method="POST">
@@ -206,6 +256,10 @@ if (isset($_SESSION['flash_message'])) {
             </div>
             <p class="text-center small mt-3">* 1 คือพึงพอใจน้อยที่สุด 5 คือพึงพอใจมากที่สุด</p>
           </div>
+        </div>
+        <div class="mx-auto mt-4 mb-3" style="max-width: 700px;">
+          <label for="additionalComments" class="form-label visually-hidden">Full name</label>
+          <textarea class="form-control" name="name" id="additionalComments" rows="1" placeholder="ชื่อเต็มของคุณ ..." style="border: 2px solid #3b3a4a; border-radius: 10px;"></textarea>
         </div>
         <div class="mx-auto mt-4 mb-3" style="max-width: 700px;">
           <label for="additionalComments" class="form-label visually-hidden">Additional Comments</label>

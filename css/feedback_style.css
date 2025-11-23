@@ -66,9 +66,15 @@ body {
   font-size: 1.5em;
 }
 
+.feedback-box{
+  border-radius: 5px;
+  box-shadow: 3px 5px 5px 3px;
+  background: #000000d2;
+}
+
 .feedback-title {
   font-family: 'Creepster';
-  color: #ffffff;
+  color: #CE642A;
   text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
   font-size: 3rem;
 }
@@ -102,6 +108,7 @@ body {
 
 /* Custom submit button style */
 .btn-submit-custom {
+  font-family: 'Creepster';
   transition: all 0.3s ease;
   box-shadow: 0 4px 15px rgba(0,0,0,0.1);
 }
