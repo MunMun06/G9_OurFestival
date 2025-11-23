@@ -49,6 +49,14 @@ header h1 {
   text-align: center;
 }
 
+.hero {
+  position: relative;
+  background-image: url("/resources/main-page-header-for-pc\,ipad\ .png");
+  background-size: cover;
+  background-position: center;
+  padding: 120px 0 0 0;
+}
+
 .wave{
   display: block;
   width: 100%;
