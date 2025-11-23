@@ -92,62 +92,111 @@ h1 {
 }
 
 .Area {
+  position: relative;
+  width: 100%;
+  height: 450px;       /* ขนาดของพื้นที่ */
+  overflow: hidden;
+  padding: 40px;
+}
+
+.Area-wrapper {
+  position: relative;
+  width: 100%;
+  height: 450px;
+  overflow: hidden;
+}
+
+.headline-text {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 5;
+
   font-family: 'MN_Lon2';
   font-size: 80px;
-  text-align: left;
-  background-image: url('../resources/festival-ambiance-4.jpg');
   color: white;
+  text-shadow: 3px 3px 10px black;}
+
+.purple-box {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  z-index: 5;
+
+  background: #5e4457;  
+  padding: 25px 30px;
+  border-radius: 12px;
+
+  color: white;
+  font-family: 'MN_Lon2';
+  font-size: 24px;
+  line-height: 1.3em;
+}
+
+.purple-box p {
+  margin: 0;
 }
 
 .Caption {
   display: flex;
 }
 
-.Caption .left {
-  background-color: #5e4457;
-  color: white;
-  font-family: 'MN_Lon2';
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  padding: 35px;
-  font-size: 20px;
-  font-size: 1.5em;
-}
-
-.Caption .right1 {
+.bg-image {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
+  height: 100%;
   background-image: url('../resources/booth-1-owner.webp');
   background-size: cover;
   background-position: center;
-  background-repeat: no-repeat;
+  z-index: 1;
+  opacity: 0.95;
 }
 
-.Caption .right2 {
+.bg-image1 {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
+  height: 100%;
+  background-image: url('../resources/booth-1-owner.webp');
+  background-size: cover;
+  background-position: center;
+  z-index: 1;}
+
+.bg-image2 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   background-image: url('../resources/booth-2-owner.jpg');
   background-size: cover;
   background-position: center;
-  background-repeat: no-repeat;
-}
+  z-index: 1;}
 
-.Caption .right3 {
+  .bg-image3 {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
+  height: 100%;
   background-image: url('../resources/booth-3-owner.png');
   background-size: cover;
   background-position: center;
-  background-repeat: no-repeat;
-}
+  z-index: 1;}
 
-.Caption .right4 {
+  .bg-image4 {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
+  height: 100%;
   background-image: url('../resources/booth-4-owner.jpeg');
   background-size: cover;
   background-position: center;
-  background-repeat: no-repeat;
-}
-
+  z-index: 1;}
 
 .list {
   font-family: 'Creepster';
