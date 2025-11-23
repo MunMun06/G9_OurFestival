@@ -67,6 +67,18 @@ if (isset($_SESSION['flash_message'])) {
     unset($_SESSION['flash_message']); // ล้าง Session เพื่อให้แสดง Alert เพียงครั้งเดียว
 }
 
+foreach ($records as $r) {
+  $ename  = htmlspecialchars($r['username'],  ENT_QUOTES, 'UTF-8');
+  $ephone = htmlspecialchars($r['phonenumber'], ENT_QUOTES, 'UTF-8');
+  $eemail  = htmlspecialchars($r['email'],  ENT_QUOTES, 'UTF-8');
+  $resultHtml .= "
+    <div class='show p-1 rounded mb-2'>
+      Name : {$ename}<br>
+      Email : {$ephone}<br>
+      Tel : {$eemail}
+    </div>";
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="th" translate="yes">
@@ -136,6 +148,9 @@ if (isset($_SESSION['flash_message'])) {
             </form>
           </div>
           <h4>Current participants : <?=$participants?></h4>
+          <div>
+            <?= $resultHtml ?>
+          </div>
         </div>
       </div>
     </section>
@@ -186,7 +201,7 @@ if (isset($_SESSION['flash_message'])) {
             const form = document.getElementById('popup-thx');
             const overlay = document.getElementById('overlay');
             form.classList.toggle('show');
-            overlay.classList.toggle('show')
+            overlay.classList.toggle('show');
         }
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
