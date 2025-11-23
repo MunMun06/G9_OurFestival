@@ -12,7 +12,14 @@
   font-style: normal;
 }
 
+html, body {
+  overflow-x: hidden !important;
+  width: 100% !important;
+  position: relative;
+}
+
 body{
+  padding-top: 80px;
   line-height: 1.6;           
   background-color: #f0e1c9 !important;
   overflow-x: hidden;
@@ -51,7 +58,7 @@ header h1 {
 
 .hero {
   position: relative;
-  background-image: url("/resources/main-page-header-for-pc\,ipad\ .png");
+  background-image: url("../resources/main-page-header-for-pc\,ipad\ .png");
   background-size: cover;
   background-position: center;
   padding: 120px 0 0 0;
@@ -115,15 +122,14 @@ header h1 {
 }
 
 #pumpkin-border {
-  width: 100vw;
-  height: auto;
+  width: 100vw !important;
   position: relative;
+  margin-top: 50px;
   left: 50%;
   right: 50%;
-  margin-left: -50vw;
-  margin-right: -50vw;
-  margin-top: 150px;
-  display: block;
+  margin-left: -50vw !important;
+  margin-right: -50vw !important;
+  max-width: none !important;
 }
 
 
@@ -345,4 +351,29 @@ footer{
 
 html {
   scroll-behavior: smooth;
+}
+
+img {
+  max-width: 100% !important;
+  height: auto !important;
+}
+
+@media (max-width: 768px) {
+
+  header h1 {
+    font-size: 3rem !important;
+    word-wrap: break-word;
+  }
+
+  #thai {
+    font-size: 3.5rem !important;
+  }
+
+  #about h2 {
+    font-size: 2rem !important;
+  }
+  
+  #about p {
+    font-size: 1.2rem !important;
+  }
 }
