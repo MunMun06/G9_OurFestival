@@ -126,9 +126,9 @@ if (isset($_SESSION['flash_message'])) {
           <h2>Join our spooky night!</h2>
           <div class="form-box">
             <form method="POST">
-              <input type="text" name="username" minlength="3" maxlength="40" placeholder="Fullname" required>
+              <input type="text" pattern="^[A-Za-z]+ [A-Za-z]+$" name="username" minlength="3" maxlength="40" placeholder="Fullname" required>
               <input type="tel" pattern="^0\d{9}" title="*error input" name="phonenumber" maxlength="10" placeholder="Phone number" required>
-              <input type="email" pattern="" name="email" placeholder="Email">
+              <input type="email" name="email" placeholder="Email">
               <div class="submit">
                 <button type="submit">Join</button>
               </div>
