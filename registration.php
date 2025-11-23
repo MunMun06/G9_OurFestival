@@ -94,7 +94,6 @@ foreach ($records as $r) {
 
 ?>
 
-?>
 <!DOCTYPE html>
 <html lang="th" translate="yes">
   <head>
