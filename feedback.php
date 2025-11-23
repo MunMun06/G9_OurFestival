@@ -78,7 +78,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         'reviews' => $currentData['reviews']
     ];
     $_SESSION['flash_message'] = $alert_message;
-    file_put_contents($dataFile, json_encode($finalOutput, JSON_PRETTY_PRINT));
+    file_put_contents($dataFile, json_encode($finalOutput, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
     //$alert_message = 'Your feedback has been sent!';
     //$alert_message = '';
     // POST-Redirect-GET: Redirect ไปที่หน้าเดิมเพื่อล้างข้อมูล POST
