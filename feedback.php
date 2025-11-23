@@ -163,7 +163,7 @@ if (isset($_SESSION['flash_message'])) {
   </head>
   <body style="background-image: url('resources/Background.jpg')">
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg mb-3 navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
       <a class="navbar-brand" href="index.html" id="navbrand">HALLOW<span id="thai-brand">วัด งาน</span>WEEN</a>
       <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navMenu"><span

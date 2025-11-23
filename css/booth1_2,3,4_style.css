@@ -13,6 +13,7 @@
 }
 
 body {
+  padding-top: 80px;
   line-height: 1.6;
   background-image: url('../resources/Background.jpg') !important;
   background-size: cover;
