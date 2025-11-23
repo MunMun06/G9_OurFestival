@@ -71,13 +71,28 @@ foreach ($records as $r) {
   $ename  = htmlspecialchars($r['username'],  ENT_QUOTES, 'UTF-8');
   $ephone = htmlspecialchars($r['phonenumber'], ENT_QUOTES, 'UTF-8');
   $eemail  = htmlspecialchars($r['email'],  ENT_QUOTES, 'UTF-8');
+
+  // ใช้โครงสร้าง Card/Box สไตล์เดียวกับ summary
   $resultHtml .= "
-    <div class='show-list p-1 rounded mb-2'>
-      Name : {$ename}<br>
-      Email : {$ephone}<br>
-      Tel : {$eemail}
+    <div class='card bg-dark text-light p-2 mb-3 mx-auto' style='max-width: 400px; border: 1px solid #CE642A;'>
+      <div class='card-body p-1'>
+        <h6 class='card-title text-warning mb-2' style='font-family: Creepster;'>
+            Registered User
+        </h6>
+        <p class='card-text small mb-1'>
+            <strong>Name:</strong> <span class='text-white'>{$ename}</span>
+        </p>
+        <p class='card-text small mb-1'>
+            <strong>Tel:</strong> <span class='text-white'>{$ephone}</span>
+        </p>
+        <p class='card-text small mb-0'>
+            <strong>Email:</strong> <span class='text-white'>{$eemail}</span>
+        </p>
+      </div>
     </div>";
 }
+
+?>
 
 ?>
 <!DOCTYPE html>
