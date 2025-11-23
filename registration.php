@@ -14,10 +14,13 @@ if (file_exists($dataFile)) {
   $records = [];
 }
 
-$participants = 0;
+$participants = count($records);
+/*
 foreach ($records as $count){
   $participants += 1;
 }
+*/
+
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   $username  = trim($_POST['username']  ?? '');
