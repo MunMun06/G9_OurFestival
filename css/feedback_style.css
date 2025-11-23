@@ -133,3 +133,44 @@ body {
     font-size: 0.9rem;
   }
 }
+
+footer{
+  background-color: #201D20;
+  padding: 40px 0;
+  width: 100%;
+  text-align: center;
+
+}
+.social-icons{
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+}
+.social-icons a{
+  text-decoration: none;
+  color: #fff;
+  font-size: 2em;
+  transition: all 0.3s ease;
+}
+.social-icons i:hover{
+  color: #ffffff;
+  text-shadow: 0 0 15px #ff7b00;
+  transform: scale(1.2);
+}
+.footbar{
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  font-family: Athiti;
+}
+.footbar a{
+  text-decoration: none;
+  color: #ffffff;
+  transition: all 0.2s ease;
+}
+.footbar a:hover{
+  color: #ffffff;
+  text-shadow: 0 0 15px #ff7b00;
+  transform: scale(1.2);
+}

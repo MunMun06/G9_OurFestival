@@ -160,6 +160,7 @@ if (isset($_SESSION['flash_message'])) {
     <link href="https://fonts.googleapis.com/css2?family=Athiti:wght@200;300;400;500;600;700&family=Creepster&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/feedback_style.css">
     <link rel="stylesheet" href="css/homePage_style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   </head>
   <body style="background-image: url('resources/Background.jpg')">
     <!-- Navbar -->
@@ -281,13 +282,14 @@ if (isset($_SESSION['flash_message'])) {
     <!-- Footer -->
 
     <footer class="footer-custom">
-    <div class="container text-center">
-      <div class="social-icons">
-        <a href="#"><i class="bi bi-instagram"></i></a>
-        <a href="#"><i class="bi bi-facebook"></i></a>
-        <a href="#"><i class="bi bi-tiktok"></i></a>
+      <div class="container text-center">
+        <div class="social-icons">
+          <a href="#"><i class="bi bi-instagram"></i></a>
+          <a href="#"><i class="bi bi-facebook"></i></a>
+          <a href="#"><i class="bi bi-tiktok"></i></a>
+        </div>
       </div>
-    </div>
+    </footer>
 
     <?php if ($flash_message !== ''): ?>
       <script>
