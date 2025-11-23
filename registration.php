@@ -72,7 +72,7 @@ foreach ($records as $r) {
   $ephone = htmlspecialchars($r['phonenumber'], ENT_QUOTES, 'UTF-8');
   $eemail  = htmlspecialchars($r['email'],  ENT_QUOTES, 'UTF-8');
   $resultHtml .= "
-    <div class='show p-1 rounded mb-2'>
+    <div class='show-list p-1 rounded mb-2'>
       Name : {$ename}<br>
       Email : {$ephone}<br>
       Tel : {$eemail}
@@ -139,9 +139,9 @@ foreach ($records as $r) {
           <h2>Join our spooky night!</h2>
           <div class="form-box">
             <form method="POST">
-              <input type="text" pattern="^[A-Za-z]+ [A-Za-z]+$" name="username" minlength="3" maxlength="40" placeholder="Fullname" required>
-              <input type="tel" pattern="^0\d{9}" title="*error input" name="phonenumber" maxlength="10" placeholder="Phone number" required>
-              <input type="email" name="email" placeholder="Email">
+              <input type="text" class="form-control" pattern="^[A-Za-z]+ [A-Za-z]+$" name="username" minlength="3" maxlength="40" placeholder="Fullname" required>
+              <input type="tel" class="form-control" pattern="^0\d{9}" name="phonenumber" maxlength="10" placeholder="Phone number" required>
+              <input type="email" class="form-control" name="email" placeholder="Email" required>
               <div class="submit">
                 <button type="submit">Join</button>
               </div>

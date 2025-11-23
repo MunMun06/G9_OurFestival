@@ -160,10 +160,11 @@ if (isset($_SESSION['flash_message'])) {
     <link href="https://fonts.googleapis.com/css2?family=Athiti:wght@200;300;400;500;600;700&family=Creepster&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/feedback_style.css">
     <link rel="stylesheet" href="css/homePage_style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   </head>
   <body style="background-image: url('resources/Background.jpg')">
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg mb-3 navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg mb-3 navbar-dark bg-dark fixed-top">
     <div class="container">
       <a class="navbar-brand" href="index.html" id="navbrand">HALLOW<span id="thai-brand">วัด งาน</span>WEEN</a>
       <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navMenu"><span
