@@ -39,13 +39,6 @@ body {
   font-size: 0.9em;
 }
 
-footer {
-  background-color: #201D20;
-  padding: 40px 0;
-  width: 100%;
-  text-align: center;
-}
-
 .social-icons {
   display: flex;
   justify-content: center;
@@ -65,38 +58,8 @@ footer {
   transform: scale(1.2);
 }
 
-.footbar {
-  margin-top: 50px;
-  display: flex;
-  justify-content: center;
-  gap: 25px;
-  font-family: Athiti;
-}
-
-.footbar a {
-  text-decoration: none;
-  color: #ffffff;
-  transition: all 0.2s ease;
-}
-
-.footbar a:hover {
-  color: #ffffff;
-  text-shadow: 0 0 15px #ff7b00;
-  transform: scale(1.2);
-}
-
-
-
 h1 {
   font-family: 'Creepster';
-}
-
-.Area {
-  position: relative;
-  width: 100%;
-  height: 450px;       /* ขนาดของพื้นที่ */
-  overflow: hidden;
-  padding: 40px;
 }
 
 .Area-wrapper {
@@ -135,23 +98,6 @@ h1 {
 
 .purple-box p {
   margin: 0;
-}
-
-.Caption {
-  display: flex;
-}
-
-.bg-image {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: url('../resources/booth-1-owner.webp');
-  background-size: cover;
-  background-position: center;
-  z-index: 1;
-  opacity: 0.95;
 }
 
 .bg-image1 {
