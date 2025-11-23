@@ -180,3 +180,9 @@ h1 {
 #item-card:hover{
   transform: scale(1.02);
 }
+
+.footer-custom {
+  background-color: #201D20;
+  padding: 40px 0;
+  width: 100%;
+  text-align: center;}
