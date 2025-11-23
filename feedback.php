@@ -131,17 +131,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // ใช้ JSON_UNESCAPED_UNICODE เพื่อให้ภาษาไทยอ่านได้
     file_put_contents($dataFile, json_encode($finalOutput, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
     
-    // POST-Redirect-GET
-    header("Location: feedback.php"); 
-    exit; 
+    // Render Alert Script
+    echo '<script>';
+    echo 'alert("' . htmlspecialchars($alert_message, ENT_QUOTES, 'UTF-8') . '");';
+    // สั่ง Redirect ไปที่ summary.php หลังจาก Alert ถูกปิด
+    echo 'window.location.href = "summary.php";';
+    echo '</script>';
+    
+    // ไม่ต้องมี header("Location: summary.php"); ตรงนี้แล้ว
+    exit;
 }
-
 $flash_message = '';
+// โหลดข้อความแจ้งเตือนที่มาจาก Error (เช่น ไม่พบชื่อผู้ใช้) เท่านั้น
 if (isset($_SESSION['flash_message'])) {
     $flash_message = $_SESSION['flash_message'];
     unset($_SESSION['flash_message']);
 }
-
 ?>
 <!DOCTYPE html>
 <html lang="en">

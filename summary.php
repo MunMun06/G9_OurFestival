@@ -24,6 +24,10 @@ if (file_exists($dataFile)) {
     }
 }
 
+// แยกข้อมูล Summary และ Reviews เพื่อใช้งานง่ายขึ้น
+$summary = $currentData['summary'] ?? [];
+$reviews = $currentData['reviews'] ?? [];
+
 // --- 2. โหลดข้อมูลผู้ใช้จาก data.json ---
 $registeredUsers = [];
 if (file_exists($userFile)) {
@@ -36,107 +40,10 @@ if (file_exists($userFile)) {
     */
 }
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    
-    // รับค่าและทำความสะอาดข้อมูล
-    $name = htmlspecialchars($_POST['name'] ?? '');
-    $q1 = htmlspecialchars($_POST['q1'] ?? 0);
-    $q2 = htmlspecialchars($_POST['q2'] ?? 0);
-    $q3 = htmlspecialchars($_POST['q3'] ?? 0);
-    $q4 = htmlspecialchars($_POST['q4'] ?? 0);
-    $q5 = htmlspecialchars($_POST['q5'] ?? 0);
-    $comments = htmlspecialchars($_POST['Comments'] ?? '-');
-
-    $isUserFound = false;
-    foreach ($registeredUsers as $user) {
-        // ใช้ trim() เพื่อตัดช่องว่างหน้า/หลังชื่อที่กรอก
-        // ตรวจสอบกับคีย์ 'username' ใน data.json
-        if (isset($user['username']) && trim($user['username']) === trim($name)) {
-            $isUserFound = true;
-            break; 
-        }
-    }
-
-    if (!$isUserFound) {
-        // หากไม่พบชื่อผู้ใช้
-        $_SESSION['flash_message'] = "⚠️ ไม่พบชื่อในระบบ กรุณาตรวจสอบว่าคุณได้ลงทะเบียนแล้วหรือไม่";
-        header("Location: feedback.php"); 
-        exit;
-    }
-
-    // *** ส่วนที่แก้ไข: ลบรายการ Feedback เก่าที่ซ้ำซ้อนออกไป ***
-    foreach($currentData['reviews'] as $key => $review) {
-        // ตรวจสอบว่าชื่อใน review ซ้ำกับชื่อที่ส่งมาหรือไม่
-        if (isset($review['name']) && trim($review['name']) === trim($name)) {
-            // ลบรายการ Feedback เก่าออกโดยใช้ Key
-            unset($currentData['reviews'][$key]);
-        }
-    }
-
-    // *** สำคัญ: จัดเรียง Index ของ Array ใหม่หลังจากลบ ***
-    // (เพื่อให้ Array เริ่มต้นจาก 0 ใหม่ และป้องกันปัญหาในการนับจำนวน Record)
-    $currentData['reviews'] = array_values($currentData['reviews']);
-
-    // --- 4. บันทึก Feedback (ถ้าตรวจสอบผ่าน) ---
-    $alert_message = 'คำตอบของคุณถูกส่งออกไปเรียบร้อย!';
-
-    $currentData['reviews'][] = [
-        'name' => $name, // เพิ่ม name เข้าไปในข้อมูล feedback
-        'q1' => (int)$q1, // แปลงเป็น int เพื่อให้การคำนวณถูกต้อง
-        'q2' => (int)$q2,
-        'q3' => (int)$q3, 
-        'q4' => (int)$q4, 
-        'q5' => (int)$q5, 
-        'comments' => $comments
-    ];
-
-    $totalRecords = count($currentData['reviews']);
-    $sumQ1 = 0; $sumQ2 = 0; $sumQ3 = 0; $sumQ4 = 0; $sumQ5 = 0;
-
-    foreach ($currentData['reviews'] as $row) {
-        // คำนวณผลรวมใหม่ทั้งหมด
-        $sumQ1 += $row['q1'] ?? 0;
-        $sumQ2 += $row['q2'] ?? 0;
-        $sumQ3 += $row['q3'] ?? 0;
-        $sumQ4 += $row['q4'] ?? 0;
-        $sumQ5 += $row['q5'] ?? 0;
-    }
-
-    if ($totalRecords > 0) {
-        $avgQ1 = number_format($sumQ1 / $totalRecords, 3);
-        $avgQ2 = number_format($sumQ2 / $totalRecords, 3);
-        $avgQ3 = number_format($sumQ3 / $totalRecords, 3);
-        $avgQ4 = number_format($sumQ4 / $totalRecords, 3);
-        $avgQ5 = number_format($sumQ5 / $totalRecords, 3);
-    } else {
-        $avgQ1 = $avgQ2 = $avgQ3 = $avgQ4 = $avgQ5 = 0;
-    }
-
-    $finalOutput = [
-        'summary' => [
-            'total_responses' => $totalRecords,
-            'last_updated' => date('Y-m-d'),
-            'averages' => [
-                'q1' => $avgQ1,
-                'q2' => $avgQ2,
-                'q3' => $avgQ3,
-                'q4' => $avgQ4,
-                'q5' => $avgQ5
-            ]
-        ],
-        'reviews' => $currentData['reviews']
-    ];
-    
-    $_SESSION['flash_message'] = $alert_message;
-    // ใช้ JSON_UNESCAPED_UNICODE เพื่อให้ภาษาไทยอ่านได้
-    file_put_contents($dataFile, json_encode($finalOutput, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
-    
-    // POST-Redirect-GET
-    header("Location: feedback.php"); 
-    exit; 
-}
+// ** REMOVED POST LOGIC HERE (Lines 37-143 in your original file) **
 
 $flash_message = '';
+// ดึงข้อความแจ้งเตือนที่ถูกส่งมาจากการ Redirect จาก feedback.php
 if (isset($_SESSION['flash_message'])) {
     $flash_message = $_SESSION['flash_message'];
     unset($_SESSION['flash_message']);
@@ -192,8 +99,80 @@ if (isset($_SESSION['flash_message'])) {
   </nav>
     
     <!-- Feedback -->
-    <div class="feedback-box container col-md-6 py-5 mb-3">
-      
+    <div class="feedback-box container col-md-8 py-5 mb-5">
+      <h1 class="text-center mb-5 text-warning" style="font-family: 'Creepster', cursive;">FEEDBACK SUMMARY</h1>
+
+        <div class="card bg-dark text-light p-4 mb-5 mx-auto" style="max-width: 800px; border: 3px solid #CE642A;">
+            <h3 class="card-title text-center text-warning mb-4" style="font-family: 'Creepster', cursive;">Overall Averages</h3>
+            <p class="mb-2"><strong>Total Responses:</strong> <span class="badge bg-warning text-dark fs-6"><?= $summary['total_responses'] ?? 0 ?></span></p>
+            <p class="mb-4 small text-end">Last Updated: <?= $summary['last_updated'] ?? 'N/A' ?></p>
+            
+            <div class="table-responsive">
+                <table class="table table-dark table-striped table-bordered text-center">
+                    <thead>
+                        <tr>
+                            <th scope="col" class="text-start text-warning">Question</th>
+                            <th scope="col" class="text-warning">Average Score (1-5)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="text-start">1. ความสนุกโดยรวมของกิจกรรม</td>
+                            <td><span class="badge bg-light text-dark fs-6"><?= $summary['averages']['q1'] ?? '0.000' ?></span></td>
+                        </tr>
+                        <tr>
+                            <td class="text-start">2. ความเหมาะสมของดนตรี / เสียง / แสง</td>
+                            <td><span class="badge bg-light text-dark fs-6"><?= $summary['averages']['q2'] ?? '0.000' ?></span></td>
+                        </tr>
+                        <tr>
+                            <td class="text-start">3. ความสะดวกในการเข้าร่วมงาน</td>
+                            <td><span class="badge bg-light text-dark fs-6"><?= $summary['averages']['q3'] ?? '0.000' ?></span></td>
+                        </tr>
+                        <tr>
+                            <td class="text-start">4. ความเป็นมิตรของทีมงาน / สตาฟ</td>
+                            <td><span class="badge bg-light text-dark fs-6"><?= $summary['averages']['q4'] ?? '0.000' ?></span></td>
+                        </tr>
+                        <tr>
+                            <td class="text-start">5. ความคุ้มค่าของเวลาและความคาดหวัง</td>
+                            <td><span class="badge bg-light text-dark fs-6"><?= $summary['averages']['q5'] ?? '0.000' ?></span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <h2 class="text-center mb-4 text-light" style="font-family: 'Creepster', cursive;">Individual Reviews (<?= count($reviews) ?>)</h2>
+        
+        <?php if (empty($reviews)): ?>
+            <p class="text-center text-light">No feedback submitted yet.</p>
+        <?php else: ?>
+            <?php foreach ($reviews as $review): 
+                // กำหนดสีของ Score Badge ตามคะแนน (4-5 = Success, 3 = Warning, <3 = Danger)
+                $q1_color = ($review['q1'] >= 4) ? 'success' : (($review['q1'] >= 3) ? 'warning' : 'danger');
+                $q2_color = ($review['q2'] >= 4) ? 'success' : (($review['q2'] >= 3) ? 'warning' : 'danger');
+                $q3_color = ($review['q3'] >= 4) ? 'success' : (($review['q3'] >= 3) ? 'warning' : 'danger');
+                $q4_color = ($review['q4'] >= 4) ? 'success' : (($review['q4'] >= 3) ? 'warning' : 'danger');
+                $q5_color = ($review['q5'] >= 4) ? 'success' : (($review['q5'] >= 3) ? 'warning' : 'danger');
+            ?>
+                <div class="card bg-dark text-light p-3 mb-4 mx-auto" style="max-width: 800px; border: 1px solid #CE642A;">
+                    <div class="card-body p-2">
+                        <h5 class="card-title text-warning mb-3" style="font-family: 'Creepster', cursive; border-bottom: 1px dashed #CE642A; padding-bottom: 5px;">
+                            Name: <?= htmlspecialchars($review['name'] ?? 'Anonymous') ?>
+                        </h5>
+                        <p class="card-text small text-white mb-2">
+                            <span class="badge bg-primary">1. Fun:</span> <span class="badge bg-<?= $q1_color ?>"><?= $review['q1'] ?? 0 ?>/5</span> | 
+                            <span class="badge bg-primary">2. Sound/Light:</span> <span class="badge bg-<?= $q2_color ?>"><?= $review['q2'] ?? 0 ?>/5</span> | 
+                            <span class="badge bg-primary">3. Convenience:</span> <span class="badge bg-<?= $q3_color ?>"><?= $review['q3'] ?? 0 ?>/5</span> | 
+                            <span class="badge bg-primary">4. Staff:</span> <span class="badge bg-<?= $q4_color ?>"><?= $review['q4'] ?? 0 ?>/5</span> | 
+                            <span class="badge bg-primary">5. Value:</span> <span class="badge bg-<?= $q5_color ?>"><?= $review['q5'] ?? 0 ?>/5</span>
+                        </p>
+                        <h6 class="mt-3 text-warning" style="font-family: 'Creepster', cursive;">Additional Comments:</h6>
+                        <p class="border p-2 bg-secondary bg-opacity-10 rounded text-light"><?= nl2br(htmlspecialchars($review['comments'] ?? '-')) ?></p>
+                    </div>
+                </div>
+            <?php endforeach; ?>
+        <?php endif; ?>
+
     </div>
     
     <!-- Footer -->
@@ -207,8 +186,14 @@ if (isset($_SESSION['flash_message'])) {
       </div>
     </footer>
 
+    <?php if ($flash_message !== ''): ?>
+      <script>
+        // แสดง Alert ข้อความที่มาจาก feedback.php (เช่น "คำตอบของคุณถูกส่งออกไปเรียบร้อย!")
+        alert("<?php echo htmlspecialchars($flash_message, ENT_QUOTES, 'UTF-8'); ?>");
+      </script>
+    <?php endif; ?>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" xintegrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <!-- Your custom script file -->
     <script src="script.js"></script>
   </body>
 </html>
