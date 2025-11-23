@@ -2,6 +2,7 @@
 session_start();
 
 $dataFile = 'feedbackdata.json';
+$alert_message = '';
 
 $currentData = [
     'summary' => [],
@@ -23,6 +24,8 @@ if (file_exists($dataFile)) {
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
+    $alert_message = 'Your feedback has been sent!';
+
     $q1 = htmlspecialchars($_POST['q1'] ?? 0);
     $q2 = htmlspecialchars($_POST['q2'] ?? 0);
     $q3 = htmlspecialchars($_POST['q3'] ?? 0);
@@ -74,9 +77,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         ],
         'reviews' => $currentData['reviews']
     ];
-
+    $_SESSION['flash_message'] = $alert_message;
     file_put_contents($dataFile, json_encode($finalOutput, JSON_PRETTY_PRINT));
+    //$alert_message = 'Your feedback has been sent!';
+    //$alert_message = '';
+    // POST-Redirect-GET: Redirect ไปที่หน้าเดิมเพื่อล้างข้อมูล POST
+    header("Location: feedback.php"); 
+    exit; // **สำคัญมาก: ต้องใช้ exit; หลัง header()**
 }
+
+$flash_message = '';
+if (isset($_SESSION['flash_message'])) {
+    $flash_message = $_SESSION['flash_message'];
+    unset($_SESSION['flash_message']); // ล้าง Session เพื่อให้แสดง Alert เพียงครั้งเดียว
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -128,7 +143,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <div class="container col-md-6 py-5 rounded-5 mb-3" style="background-color: rgb(214, 116, 81);">
       <!-- Added text-center and mb-4 for better spacing and alignment -->
       <h1 class="feedback-title text-center mb-4">PLEASE LEAVE YOUR FEEDBACK</h1>
-      <form method="post" action="">
+      <form method="POST">
         <div class="card p-4 mx-auto" style="max-width: 700px;">
           <div class="card-body p-0">
             <!-- Added .table-responsive to this div -->
@@ -218,6 +233,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <a href="#"><i class="bi bi-tiktok"></i></a>
       </div>
     </div>
+
+    <?php if ($flash_message !== ''): ?>
+      <script>
+        // แสดง Alert สำหรับข้อผิดพลาด (Duplicate)
+        alert("<?php echo htmlspecialchars($flash_message, ENT_QUOTES, 'UTF-8'); ?>");
+      </script>
+    <?php endif; ?>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" xintegrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <!-- Your custom script file -->

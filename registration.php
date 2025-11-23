@@ -15,19 +15,12 @@ if (file_exists($dataFile)) {
 }
 
 $participants = count($records);
-/*
-foreach ($records as $count){
-  $participants += 1;
-}
-*/
 
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   $username  = trim($_POST['username']  ?? '');
   $phonenumber = trim($_POST['phonenumber'] ?? '');
   $email  = trim($_POST['email']  ?? '');
-
-  // ไม่จำเป็นต้อง unset($_POST) ที่นี่ เพราะเรากำลังจะ Redirect
 
   foreach ($records as $user) {
     $existing_username = trim($user['username'] ?? '');
@@ -58,9 +51,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   if ($username && $phonenumber && $email && $pass === 1) {
     $records[] = ['username' => $username, 'phonenumber' => $phonenumber, 'email' => $email];
     file_put_contents($dataFile, json_encode($records, JSON_PRETTY_PRINT));
-    $_SESSION['flash_message'] = 'success'; // ตั้งค่า Session สำหรับแจ้งเตือนความสำเร็จ
+    $_SESSION['flash_message'] = 'success';
   } else {
-      // ถ้ามีการแจ้งเตือน Duplicate ให้เก็บลง Session
       $_SESSION['flash_message'] = $alertMessage;
   }
   
