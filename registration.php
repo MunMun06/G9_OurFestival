@@ -147,7 +147,7 @@ foreach ($records as $r) {
           <h2>Join our spooky night!</h2>
           <div class="form-box">
             <form method="POST">
-              <input type="text" class="form-control" pattern="^[A-Za-z]+ [A-Za-z]+$" title="First letter of firstname and surname must be capital letter." name="username" minlength="3" maxlength="40" placeholder="Fullname e.g. Ajnoon Cstu" required>
+              <input type="text" class="form-control" pattern="^[A-Z][a-z]* [A-Z][a-z]*" title="First letter of firstname and surname must be capital letter." name="username" minlength="3" maxlength="40" placeholder="Fullname e.g. Ajnoon Cstu" required>
               <input type="tel" class="form-control" pattern="^0\d{9}" name="phonenumber" title="Must contain 10 numbers." maxlength="10" placeholder="Phone number" required>
               <input type="email" class="form-control" name="email" placeholder="Email" required>
               <div class="submit">
