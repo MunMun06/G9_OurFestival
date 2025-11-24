@@ -82,12 +82,6 @@ foreach ($records as $r) {
         <p class='card-text small mb-1'>
             <strong>Name:</strong> <span class='text-white'>{$ename}</span>
         </p>
-        <p class='card-text small mb-1'>
-            <strong>Tel:</strong> <span class='text-white'>{$ephone}</span>
-        </p>
-        <p class='card-text small mb-0'>
-            <strong>Email:</strong> <span class='text-white'>{$eemail}</span>
-        </p>
       </div>
     </div>";
 }
