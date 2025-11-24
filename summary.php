@@ -33,21 +33,19 @@ $registeredUsers = [];
 if (file_exists($userFile)) {
     // โหลดข้อมูลผู้ใช้ทั้งหมด
     $registeredUsers = json_decode(file_get_contents($userFile), true);
-    /*
     if (!is_array($registeredUsers)) {
         $registeredUsers = [];
     }
-    */
+
 }
-
-// ** REMOVED POST LOGIC HERE (Lines 37-143 in your original file) **
-
+/*
 $flash_message = '';
 // ดึงข้อความแจ้งเตือนที่ถูกส่งมาจากการ Redirect จาก feedback.php
 if (isset($_SESSION['flash_message'])) {
     $flash_message = $_SESSION['flash_message'];
     unset($_SESSION['flash_message']);
 }
+*/
 
 ?>
 <!DOCTYPE html>
@@ -143,7 +141,7 @@ if (isset($_SESSION['flash_message'])) {
 
         <h2 class="text-center mb-4 text-light" style="font-family: 'Creepster', cursive;">Individual Reviews (<?= count($reviews) ?>)</h2>
         
-        <?php if (empty($reviews)): ?>
+        <?php if (empty($reviews)): ?> 
             <p class="text-center text-light">No feedback submitted yet.</p>
         <?php else: ?>
             <?php foreach ($reviews as $review): 
@@ -157,7 +155,7 @@ if (isset($_SESSION['flash_message'])) {
                 <div class="card bg-dark text-light p-3 mb-4 mx-auto" style="max-width: 800px; border: 1px solid #CE642A;">
                     <div class="card-body p-2">
                         <h5 class="card-title text-warning mb-3" style="font-family: 'Creepster', cursive; border-bottom: 1px dashed #CE642A; padding-bottom: 5px;">
-                            Name: <?= htmlspecialchars($review['name'] ?? 'Anonymous') ?>
+                            Name: <?= htmlspecialchars($review['name'] ?? 'Anonymous')//ถ้าไม่มีชื่อ แสดง Anonymous ?>
                         </h5>
                         <p class="card-text small text-white mb-2">
                             <span class="badge bg-primary">1. Fun:</span> <span class="badge bg-<?= $q1_color ?>"><?= $review['q1'] ?? 0 ?>/5</span> | 
@@ -167,7 +165,7 @@ if (isset($_SESSION['flash_message'])) {
                             <span class="badge bg-primary">5. Value:</span> <span class="badge bg-<?= $q5_color ?>"><?= $review['q5'] ?? 0 ?>/5</span>
                         </p>
                         <h6 class="mt-3 text-warning" style="font-family: 'Creepster', cursive;">Additional Comments:</h6>
-                        <p class="border p-2 bg-secondary bg-opacity-10 rounded text-light"><?= nl2br(htmlspecialchars($review['comments'] ?? '-')) ?></p>
+                        <p class="border p-2 bg-secondary bg-opacity-10 rounded text-light"><?= nl2br(htmlspecialchars($review['comments'] ?? '-'))//คงการขึ้นบรรทัดใหม่ของ comment ไว้?></p>
                     </div>
                 </div>
             <?php endforeach; ?>

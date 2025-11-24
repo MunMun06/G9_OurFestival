@@ -103,7 +103,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     if ($totalRecords > 0) {
-        $avgQ1 = number_format($sumQ1 / $totalRecords, 3);
+        $avgQ1 = number_format($sumQ1 / $totalRecords, 3); // คำนวณ และปัดทศนิยม
         $avgQ2 = number_format($sumQ2 / $totalRecords, 3);
         $avgQ3 = number_format($sumQ3 / $totalRecords, 3);
         $avgQ4 = number_format($sumQ4 / $totalRecords, 3);
@@ -111,11 +111,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
         $avgQ1 = $avgQ2 = $avgQ3 = $avgQ4 = $avgQ5 = 0;
     }
-
+    date_default_timezone_set("Asia/Bangkok");
     $finalOutput = [
         'summary' => [
             'total_responses' => $totalRecords,
-            'last_updated' => date('Y-m-d'),
+            'last_updated' => date('Y-m-d') . " " . date("h:i:sa"),
             'averages' => [
                 'q1' => $avgQ1,
                 'q2' => $avgQ2,
@@ -127,7 +127,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         'reviews' => $currentData['reviews']
     ];
     
-    $_SESSION['flash_message'] = $alert_message;
+    $_SESSION['flash_message'] = $alert_message; // ส่ง alert ว่าข้อมูลถูกส่งเรียบร้อย
     // ใช้ JSON_UNESCAPED_UNICODE เพื่อให้ภาษาไทยอ่านได้
     file_put_contents($dataFile, json_encode($finalOutput, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
     
@@ -142,7 +142,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     exit;
 }
 $flash_message = '';
-// โหลดข้อความแจ้งเตือนที่มาจาก Error (เช่น ไม่พบชื่อผู้ใช้) เท่านั้น
 if (isset($_SESSION['flash_message'])) {
     $flash_message = $_SESSION['flash_message'];
     unset($_SESSION['flash_message']);
