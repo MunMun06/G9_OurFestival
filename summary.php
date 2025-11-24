@@ -184,13 +184,6 @@ if (isset($_SESSION['flash_message'])) {
       </div>
     </footer>
 
-    <?php if ($flash_message !== ''): ?>
-      <script>
-        // แสดง Alert ข้อความที่มาจาก feedback.php (เช่น "คำตอบของคุณถูกส่งออกไปเรียบร้อย!")
-        alert("<?php echo htmlspecialchars($flash_message, ENT_QUOTES, 'UTF-8'); ?>");
-      </script>
-    <?php endif; ?>
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" xintegrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script src="script.js"></script>
   </body>
