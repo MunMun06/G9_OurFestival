@@ -45,23 +45,19 @@ body{
   font-size: 1.5em;
 }
 
-header{
-  background-color: #211C20;
-}
-
 header h1 {
   font-family: 'Creepster';
   color: #CE642A;
-  font-size: 5rem;
+  font-size: 6rem;
   text-align: center;
 }
 
 .hero {
   position: relative;
-  background-image: url("../resources/main-page-header-for-pc\,ipad\ .png");
+  background-image: url("../resources/main-page-header-for-pcipad.png");
   background-size: cover;
   background-position: center;
-  padding: 120px 0 0 0;
+  padding: 120px 0 220px 0;
 }
 
 .wave{
@@ -365,6 +361,13 @@ img {
     word-wrap: break-word;
   }
 
+  .hero {
+    background-image: url("../resources/main-page-header-for-phone.png");
+  }
+
+  #ndline{
+    top: -15px;
+  }
   #thai {
     font-size: 3.5rem !important;
   }
