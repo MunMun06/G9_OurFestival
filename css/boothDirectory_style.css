@@ -90,6 +90,7 @@ footer {
   color: #CE642A;
   text-align: center;
   font-family: 'Creepster';
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
 }
 
 .booth-container {
@@ -100,12 +101,13 @@ footer {
   flex-wrap: wrap;
   margin-top: 40px;
   padding: 20px;
+  padding-left: 0px;
 }
 
 .booth-card {
   border-radius: 15px;
   padding: 10px;
-  width: 350px;
+  width: 325px;
   height: 500px;
   transition: transform 0.3s, box-shadow 0.3s;
   font-family: 'MN_Lon2';
@@ -115,9 +117,13 @@ footer {
 }
 
 .booth-card img {
-  width: 350px;
-  height: 350px;
-  border-radius: 10px;
+  width: 325px; /* ให้รูปภาพเต็มความกว้างของกล่อง */
+  height: 400px; /* กำหนดความสูงที่แน่นอนของรูปภาพ (ปรับได้ตามต้องการ) */
+  object-fit: cover; /* <--- ตรงนี้สำคัญ: ให้รูปภาพครอบคลุมพื้นที่โดยไม่บีบ/ยืด */
+  object-position: center; /* <--- ตรงนี้สำคัญ: จัดตำแหน่งรูปให้อยู่ตรงกลาง (ค่า default) */
+  display: block; /* ช่วยให้การจัดวางรูปภาพทำได้ดีขึ้น */
+  border-radius: 15px;
+  box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
 }
 
 .booth-card p {
