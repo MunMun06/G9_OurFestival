@@ -162,6 +162,7 @@ h1 {
   padding: 15px;
   background-color: rgb(255, 255, 255);
   box-shadow: 0 4px 10px;
+  border-radius: 8px;
   text-align: center;
   flex-direction: column;
   justify-content: space-between;
